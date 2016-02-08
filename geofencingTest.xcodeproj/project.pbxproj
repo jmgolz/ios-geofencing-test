@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E5AD6F8E1C68F07D007C7F76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F8D1C68F07D007C7F76 /* main.m */; };
+		E5AD6F911C68F07D007C7F76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F901C68F07D007C7F76 /* AppDelegate.m */; };
+		E5AD6F941C68F07D007C7F76 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F931C68F07D007C7F76 /* ViewController.m */; };
+		E5AD6F971C68F07D007C7F76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5AD6F951C68F07D007C7F76 /* Main.storyboard */; };
+		E5AD6F9A1C68F07D007C7F76 /* geofencingTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F981C68F07D007C7F76 /* geofencingTest.xcdatamodeld */; };
+		E5AD6F9C1C68F07D007C7F76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5AD6F9B1C68F07D007C7F76 /* Assets.xcassets */; };
+		E5AD6F9F1C68F07D007C7F76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5AD6F9D1C68F07D007C7F76 /* LaunchScreen.storyboard */; };
+		E5AD6FAA1C68F07D007C7F76 /* geofencingTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6FA91C68F07D007C7F76 /* geofencingTestTests.m */; };
+		E5AD6FB51C68F07D007C7F76 /* geofencingTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6FB41C68F07D007C7F76 /* geofencingTestUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5AD6FA61C68F07D007C7F76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5AD6F811C68F07D007C7F76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5AD6F881C68F07D007C7F76;
+			remoteInfo = geofencingTest;
+		};
+		E5AD6FB11C68F07D007C7F76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5AD6F811C68F07D007C7F76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5AD6F881C68F07D007C7F76;
+			remoteInfo = geofencingTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E5AD6F891C68F07D007C7F76 /* geofencingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geofencingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5AD6F8D1C68F07D007C7F76 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E5AD6F8F1C68F07D007C7F76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E5AD6F901C68F07D007C7F76 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E5AD6F921C68F07D007C7F76 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E5AD6F931C68F07D007C7F76 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E5AD6F961C68F07D007C7F76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E5AD6F991C68F07D007C7F76 /* geofencingTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = geofencingTest.xcdatamodel; sourceTree = "<group>"; };
+		E5AD6F9B1C68F07D007C7F76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E5AD6F9E1C68F07D007C7F76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E5AD6FA01C68F07D007C7F76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5AD6FA51C68F07D007C7F76 /* geofencingTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = geofencingTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5AD6FA91C68F07D007C7F76 /* geofencingTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = geofencingTestTests.m; sourceTree = "<group>"; };
+		E5AD6FAB1C68F07D007C7F76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5AD6FB01C68F07D007C7F76 /* geofencingTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = geofencingTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5AD6FB41C68F07D007C7F76 /* geofencingTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = geofencingTestUITests.m; sourceTree = "<group>"; };
+		E5AD6FB61C68F07D007C7F76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5AD6F861C68F07D007C7F76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5AD6FA21C68F07D007C7F76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5AD6FAD1C68F07D007C7F76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E5AD6F801C68F07D007C7F76 = {
+			isa = PBXGroup;
+			children = (
+				E5AD6F8B1C68F07D007C7F76 /* geofencingTest */,
+				E5AD6FA81C68F07D007C7F76 /* geofencingTestTests */,
+				E5AD6FB31C68F07D007C7F76 /* geofencingTestUITests */,
+				E5AD6F8A1C68F07D007C7F76 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E5AD6F8A1C68F07D007C7F76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5AD6F891C68F07D007C7F76 /* geofencingTest.app */,
+				E5AD6FA51C68F07D007C7F76 /* geofencingTestTests.xctest */,
+				E5AD6FB01C68F07D007C7F76 /* geofencingTestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5AD6F8B1C68F07D007C7F76 /* geofencingTest */ = {
+			isa = PBXGroup;
+			children = (
+				E5AD6F8F1C68F07D007C7F76 /* AppDelegate.h */,
+				E5AD6F901C68F07D007C7F76 /* AppDelegate.m */,
+				E5AD6F921C68F07D007C7F76 /* ViewController.h */,
+				E5AD6F931C68F07D007C7F76 /* ViewController.m */,
+				E5AD6F951C68F07D007C7F76 /* Main.storyboard */,
+				E5AD6F9B1C68F07D007C7F76 /* Assets.xcassets */,
+				E5AD6F9D1C68F07D007C7F76 /* LaunchScreen.storyboard */,
+				E5AD6FA01C68F07D007C7F76 /* Info.plist */,
+				E5AD6F981C68F07D007C7F76 /* geofencingTest.xcdatamodeld */,
+				E5AD6F8C1C68F07D007C7F76 /* Supporting Files */,
+			);
+			path = geofencingTest;
+			sourceTree = "<group>";
+		};
+		E5AD6F8C1C68F07D007C7F76 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5AD6F8D1C68F07D007C7F76 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E5AD6FA81C68F07D007C7F76 /* geofencingTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				E5AD6FA91C68F07D007C7F76 /* geofencingTestTests.m */,
+				E5AD6FAB1C68F07D007C7F76 /* Info.plist */,
+			);
+			path = geofencingTestTests;
+			sourceTree = "<group>";
+		};
+		E5AD6FB31C68F07D007C7F76 /* geofencingTestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E5AD6FB41C68F07D007C7F76 /* geofencingTestUITests.m */,
+				E5AD6FB61C68F07D007C7F76 /* Info.plist */,
+			);
+			path = geofencingTestUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5AD6F881C68F07D007C7F76 /* geofencingTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5AD6FB91C68F07D007C7F76 /* Build configuration list for PBXNativeTarget "geofencingTest" */;
+			buildPhases = (
+				E5AD6F851C68F07D007C7F76 /* Sources */,
+				E5AD6F861C68F07D007C7F76 /* Frameworks */,
+				E5AD6F871C68F07D007C7F76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = geofencingTest;
+			productName = geofencingTest;
+			productReference = E5AD6F891C68F07D007C7F76 /* geofencingTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E5AD6FA41C68F07D007C7F76 /* geofencingTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5AD6FBC1C68F07D007C7F76 /* Build configuration list for PBXNativeTarget "geofencingTestTests" */;
+			buildPhases = (
+				E5AD6FA11C68F07D007C7F76 /* Sources */,
+				E5AD6FA21C68F07D007C7F76 /* Frameworks */,
+				E5AD6FA31C68F07D007C7F76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5AD6FA71C68F07D007C7F76 /* PBXTargetDependency */,
+			);
+			name = geofencingTestTests;
+			productName = geofencingTestTests;
+			productReference = E5AD6FA51C68F07D007C7F76 /* geofencingTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E5AD6FAF1C68F07D007C7F76 /* geofencingTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5AD6FBF1C68F07D007C7F76 /* Build configuration list for PBXNativeTarget "geofencingTestUITests" */;
+			buildPhases = (
+				E5AD6FAC1C68F07D007C7F76 /* Sources */,
+				E5AD6FAD1C68F07D007C7F76 /* Frameworks */,
+				E5AD6FAE1C68F07D007C7F76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5AD6FB21C68F07D007C7F76 /* PBXTargetDependency */,
+			);
+			name = geofencingTestUITests;
+			productName = geofencingTestUITests;
+			productReference = E5AD6FB01C68F07D007C7F76 /* geofencingTestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5AD6F811C68F07D007C7F76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Sharks with Laser Spines";
+				TargetAttributes = {
+					E5AD6F881C68F07D007C7F76 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 32HK23ELWJ;
+					};
+					E5AD6FA41C68F07D007C7F76 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 32HK23ELWJ;
+						TestTargetID = E5AD6F881C68F07D007C7F76;
+					};
+					E5AD6FAF1C68F07D007C7F76 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 32HK23ELWJ;
+						TestTargetID = E5AD6F881C68F07D007C7F76;
+					};
+				};
+			};
+			buildConfigurationList = E5AD6F841C68F07D007C7F76 /* Build configuration list for PBXProject "geofencingTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E5AD6F801C68F07D007C7F76;
+			productRefGroup = E5AD6F8A1C68F07D007C7F76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5AD6F881C68F07D007C7F76 /* geofencingTest */,
+				E5AD6FA41C68F07D007C7F76 /* geofencingTestTests */,
+				E5AD6FAF1C68F07D007C7F76 /* geofencingTestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5AD6F871C68F07D007C7F76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5AD6F9F1C68F07D007C7F76 /* LaunchScreen.storyboard in Resources */,
+				E5AD6F9C1C68F07D007C7F76 /* Assets.xcassets in Resources */,
+				E5AD6F971C68F07D007C7F76 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5AD6FA31C68F07D007C7F76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5AD6FAE1C68F07D007C7F76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5AD6F851C68F07D007C7F76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5AD6F9A1C68F07D007C7F76 /* geofencingTest.xcdatamodeld in Sources */,
+				E5AD6F941C68F07D007C7F76 /* ViewController.m in Sources */,
+				E5AD6F911C68F07D007C7F76 /* AppDelegate.m in Sources */,
+				E5AD6F8E1C68F07D007C7F76 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5AD6FA11C68F07D007C7F76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5AD6FAA1C68F07D007C7F76 /* geofencingTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5AD6FAC1C68F07D007C7F76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5AD6FB51C68F07D007C7F76 /* geofencingTestUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5AD6FA71C68F07D007C7F76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5AD6F881C68F07D007C7F76 /* geofencingTest */;
+			targetProxy = E5AD6FA61C68F07D007C7F76 /* PBXContainerItemProxy */;
+		};
+		E5AD6FB21C68F07D007C7F76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5AD6F881C68F07D007C7F76 /* geofencingTest */;
+			targetProxy = E5AD6FB11C68F07D007C7F76 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E5AD6F951C68F07D007C7F76 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5AD6F961C68F07D007C7F76 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E5AD6F9D1C68F07D007C7F76 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5AD6F9E1C68F07D007C7F76 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E5AD6FB71C68F07D007C7F76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E5AD6FB81C68F07D007C7F76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E5AD6FBA1C68F07D007C7F76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = geofencingTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = meInc.geofencingTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E5AD6FBB1C68F07D007C7F76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = geofencingTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = meInc.geofencingTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E5AD6FBD1C68F07D007C7F76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = geofencingTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = meInc.geofencingTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/geofencingTest.app/geofencingTest";
+			};
+			name = Debug;
+		};
+		E5AD6FBE1C68F07D007C7F76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = geofencingTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = meInc.geofencingTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/geofencingTest.app/geofencingTest";
+			};
+			name = Release;
+		};
+		E5AD6FC01C68F07D007C7F76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = geofencingTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = meInc.geofencingTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = geofencingTest;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		E5AD6FC11C68F07D007C7F76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = geofencingTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = meInc.geofencingTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = geofencingTest;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5AD6F841C68F07D007C7F76 /* Build configuration list for PBXProject "geofencingTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5AD6FB71C68F07D007C7F76 /* Debug */,
+				E5AD6FB81C68F07D007C7F76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5AD6FB91C68F07D007C7F76 /* Build configuration list for PBXNativeTarget "geofencingTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5AD6FBA1C68F07D007C7F76 /* Debug */,
+				E5AD6FBB1C68F07D007C7F76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E5AD6FBC1C68F07D007C7F76 /* Build configuration list for PBXNativeTarget "geofencingTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5AD6FBD1C68F07D007C7F76 /* Debug */,
+				E5AD6FBE1C68F07D007C7F76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E5AD6FBF1C68F07D007C7F76 /* Build configuration list for PBXNativeTarget "geofencingTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5AD6FC01C68F07D007C7F76 /* Debug */,
+				E5AD6FC11C68F07D007C7F76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E5AD6F981C68F07D007C7F76 /* geofencingTest.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E5AD6F991C68F07D007C7F76 /* geofencingTest.xcdatamodel */,
+			);
+			currentVersion = E5AD6F991C68F07D007C7F76 /* geofencingTest.xcdatamodel */;
+			path = geofencingTest.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E5AD6F811C68F07D007C7F76 /* Project object */;
+}

@@ -59,7 +59,8 @@
 -(void)setUpGeoFences{
     CLLocationCoordinate2D tampaGeoFenceCoords = CLLocationCoordinate2DMake(27.950575, -82.457178);
     CLRegion *tampaGeoFence = [[CLCircularRegion alloc] initWithCenter:tampaGeoFenceCoords radius:1000 identifier:@"tampa"];
-    [self.locationManager startMonitoringForRegion:tampaGeoFence];
+    //[self.locationManager startMonitoringForRegion:tampaGeoFence];
+    [self.locationManager startUpdatingLocation];
 }
 
 

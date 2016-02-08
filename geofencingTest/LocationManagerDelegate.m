@@ -35,6 +35,7 @@
     
 }
 
+//Delegate methods for geofencing
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
     
 }

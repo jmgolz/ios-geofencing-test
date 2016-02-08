@@ -42,6 +42,22 @@
 
 -(void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region{
     NSLog(@"Monitoring regions");
+    [manager requestStateForRegion:region];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region{
+    switch (state) {
+        case CLRegionStateInside:
+            NSLog(@"Started inside of region: %@", region.identifier);
+            break;
+            
+        case CLRegionStateOutside:
+            NSLog(@"Started OUTSIDE of region: %@", region.identifier);
+            break;
+            
+        default:
+            break;
+    }
 }
 
 -(void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error{

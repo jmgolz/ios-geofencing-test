@@ -16,6 +16,8 @@
 		E5AD6F9F1C68F07D007C7F76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5AD6F9D1C68F07D007C7F76 /* LaunchScreen.storyboard */; };
 		E5AD6FAA1C68F07D007C7F76 /* geofencingTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6FA91C68F07D007C7F76 /* geofencingTestTests.m */; };
 		E5AD6FB51C68F07D007C7F76 /* geofencingTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6FB41C68F07D007C7F76 /* geofencingTestUITests.m */; };
+		E5AD6FC31C68F098007C7F76 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AD6FC21C68F098007C7F76 /* CoreLocation.framework */; };
+		E5AD6FC61C68F161007C7F76 /* LocationManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6FC51C68F161007C7F76 /* LocationManagerDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		E5AD6FB01C68F07D007C7F76 /* geofencingTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = geofencingTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AD6FB41C68F07D007C7F76 /* geofencingTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = geofencingTestUITests.m; sourceTree = "<group>"; };
 		E5AD6FB61C68F07D007C7F76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5AD6FC21C68F098007C7F76 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E5AD6FC41C68F161007C7F76 /* LocationManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManagerDelegate.h; sourceTree = "<group>"; };
+		E5AD6FC51C68F161007C7F76 /* LocationManagerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManagerDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5AD6FC31C68F098007C7F76 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +89,7 @@
 		E5AD6F801C68F07D007C7F76 = {
 			isa = PBXGroup;
 			children = (
+				E5AD6FC21C68F098007C7F76 /* CoreLocation.framework */,
 				E5AD6F8B1C68F07D007C7F76 /* geofencingTest */,
 				E5AD6FA81C68F07D007C7F76 /* geofencingTestTests */,
 				E5AD6FB31C68F07D007C7F76 /* geofencingTestUITests */,
@@ -113,6 +120,8 @@
 				E5AD6FA01C68F07D007C7F76 /* Info.plist */,
 				E5AD6F981C68F07D007C7F76 /* geofencingTest.xcdatamodeld */,
 				E5AD6F8C1C68F07D007C7F76 /* Supporting Files */,
+				E5AD6FC41C68F161007C7F76 /* LocationManagerDelegate.h */,
+				E5AD6FC51C68F161007C7F76 /* LocationManagerDelegate.m */,
 			);
 			path = geofencingTest;
 			sourceTree = "<group>";
@@ -278,6 +287,7 @@
 			files = (
 				E5AD6F9A1C68F07D007C7F76 /* geofencingTest.xcdatamodeld in Sources */,
 				E5AD6F941C68F07D007C7F76 /* ViewController.m in Sources */,
+				E5AD6FC61C68F161007C7F76 /* LocationManagerDelegate.m in Sources */,
 				E5AD6F911C68F07D007C7F76 /* AppDelegate.m in Sources */,
 				E5AD6F8E1C68F07D007C7F76 /* main.m in Sources */,
 			);

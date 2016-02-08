@@ -7,9 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "LocationManagerDelegate.h"
 
 @interface ViewController : UIViewController
+@property CLLocationManager *locationManager;
+@property LocationManagerDelegate *locationManagerDelegate;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *scansLabel;
+
+- (IBAction)doScan:(id)sender;
+- (void)handleLocationServicesAuthorizationCheck;
+- (void)setUpGeoFences;
 
 @end
 

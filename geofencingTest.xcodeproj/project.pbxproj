@@ -19,6 +19,7 @@
 		E5AD6FC31C68F098007C7F76 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AD6FC21C68F098007C7F76 /* CoreLocation.framework */; };
 		E5AD6FC61C68F161007C7F76 /* LocationManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6FC51C68F161007C7F76 /* LocationManagerDelegate.m */; };
 		E5AD700A1C694C97007C7F76 /* Test3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E5AD70091C694C97007C7F76 /* Test3.gpx */; };
+		E5AD700C1C6A6EA9007C7F76 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AD700B1C6A6EA9007C7F76 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		E5AD6FC41C68F161007C7F76 /* LocationManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManagerDelegate.h; sourceTree = "<group>"; };
 		E5AD6FC51C68F161007C7F76 /* LocationManagerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManagerDelegate.m; sourceTree = "<group>"; };
 		E5AD70091C694C97007C7F76 /* Test3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Test3.gpx; sourceTree = "<group>"; };
+		E5AD700B1C6A6EA9007C7F76 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5AD700C1C6A6EA9007C7F76 /* MapKit.framework in Frameworks */,
 				E5AD6FC31C68F098007C7F76 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +94,7 @@
 		E5AD6F801C68F07D007C7F76 = {
 			isa = PBXGroup;
 			children = (
+				E5AD700B1C6A6EA9007C7F76 /* MapKit.framework */,
 				E5AD70091C694C97007C7F76 /* Test3.gpx */,
 				E5AD6FC21C68F098007C7F76 /* CoreLocation.framework */,
 				E5AD6F8B1C68F07D007C7F76 /* geofencingTest */,
@@ -223,6 +227,11 @@
 					E5AD6F881C68F07D007C7F76 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 32HK23ELWJ;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					E5AD6FA41C68F07D007C7F76 = {
 						CreatedOnToolsVersion = 7.1;
@@ -517,6 +526,7 @@
 				E5AD6FBB1C68F07D007C7F76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5AD6FBC1C68F07D007C7F76 /* Build configuration list for PBXNativeTarget "geofencingTestTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +535,7 @@
 				E5AD6FBE1C68F07D007C7F76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5AD6FBF1C68F07D007C7F76 /* Build configuration list for PBXNativeTarget "geofencingTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +544,7 @@
 				E5AD6FC11C68F07D007C7F76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

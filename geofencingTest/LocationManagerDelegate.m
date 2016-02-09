@@ -26,7 +26,7 @@
     [geocoder reverseGeocodeLocation:crnLoc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         //NSLog(@"ZIP CODE: %@", [[[placemarks objectAtIndex:0] addressDictionary] objectForKey:@"ZIP"]);
         
-        NSLog(@"lat: %f long: %f", crnLoc.coordinate.latitude, crnLoc.coordinate.longitude);
+        //NSLog(@"lat: %f long: %f", crnLoc.coordinate.latitude, crnLoc.coordinate.longitude);
         //NSLog(@"Address: %@", [[[placemarks objectAtIndex:0] addressDictionary] objectForKey:@"FormattedAddressLines"]);
     }];
     

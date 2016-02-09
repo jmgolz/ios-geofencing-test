@@ -23,7 +23,7 @@
     self.mapView.showsUserLocation = YES;    
     
     //[self.mapView setCenterCoordinate:self.mapView.userLocation.coordinate];
-    MKCoordinateRegion initialCoordinate = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 500, 500);
+    MKCoordinateRegion initialCoordinate = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 50, 50);
     
     [self.mapView setRegion:initialCoordinate animated:YES];
     

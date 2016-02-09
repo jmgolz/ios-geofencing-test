@@ -17,13 +17,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    //Map init
+    self.mapViewLocationManagerDelegate = [[MapViewLocationUpdatesDelegate alloc] init];
+    self.mapView.delegate = self.mapViewLocationManagerDelegate;
+    self.mapView.showsUserLocation = YES;    
+    
+    //[self.mapView setCenterCoordinate:self.mapView.userLocation.coordinate];
+    MKCoordinateRegion initialCoordinate = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 500, 500);
+    
+    [self.mapView setRegion:initialCoordinate animated:YES];
     
     //Begin location monitoring
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManagerDelegate = [[LocationManagerDelegate alloc] init];
     self.locationManager.delegate = self.locationManagerDelegate;
     
+    //Get user permission to use location services, then start monitoring
     [self handleLocationServicesAuthorizationCheck];
 }
 

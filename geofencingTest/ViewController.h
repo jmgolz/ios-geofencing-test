@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
+
 #import "LocationManagerDelegate.h"
+#import "MapViewLocationUpdatesDelegate.h"
 
 @interface ViewController : UIViewController
+
 @property CLLocationManager *locationManager;
 @property LocationManagerDelegate *locationManagerDelegate;
-
-
+@property MapViewLocationUpdatesDelegate *mapViewLocationManagerDelegate;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *scansLabel;
 
 - (IBAction)doScan:(id)sender;

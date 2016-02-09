@@ -50,6 +50,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="lLE-Wv-EeR" id="AVF-jf-Pce"/>
                         <outlet property="scansLabel" destination="04U-0Y-NdY" id="h9F-vB-Gus"/>
                     </connections>
                 </viewController>

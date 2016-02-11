@@ -34,6 +34,33 @@
     
     //Get user permission to use location services, then start monitoring
     [self handleLocationServicesAuthorizationCheck];
+    
+    //Allocate gesture recognizer
+    self.mapTapRecognizer = [[UITapGestureRecognizer alloc] init];
+    self.mapTapRecognizer.numberOfTapsRequired = 2;
+    self.mapTapRecognizer.delegate = self;
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    for (UITouch *touch in touches) {
+        if (touch.tapCount == 2) {
+            NSLog(@"Double touched!");
+            [self updateMap:[touch locationInView:touch.view]];
+        }
+    }
+}
+
+-(void)updateMap:(CGPoint)pointTouched{
+    MKPointAnnotation *annotationFromTouch = [[MKPointAnnotation alloc] init];
+    
+    CLLocationCoordinate2D coordinateToAdd = [self.mapView convertPoint:pointTouched toCoordinateFromView:self.mapView];
+    
+    annotationFromTouch.coordinate = coordinateToAdd;
+    annotationFromTouch.title = @"Checkpoint";
+    
+    NSLog(@"coord: x:%f, y:%f", annotationFromTouch.coordinate.latitude, annotationFromTouch.coordinate.longitude);
+    
+    [self.mapView addAnnotation:annotationFromTouch];    
 }
 
 - (void)didReceiveMemoryWarning {

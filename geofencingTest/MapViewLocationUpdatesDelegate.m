@@ -10,14 +10,26 @@
 
 @implementation MapViewLocationUpdatesDelegate
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-    CLLocationSpeed speedToUseAsZoomFactor = 50;
-    
+    CLLocationSpeed speedToUseAsZoomFactor = 1;
+    CLLocationCoordinate2D emptyCoordinate;
     if(userLocation.location.speed){
-        speedToUseAsZoomFactor = fabs(userLocation.location.speed * 13.5);
+        speedToUseAsZoomFactor = fabs(userLocation.location.speed * 1);
+        
     }
     
-    MKCoordinateRegion updatedCoordinate = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, speedToUseAsZoomFactor, speedToUseAsZoomFactor);
+    //MKCoordinateRegion updatedCoordinate = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, speedToUseAsZoomFactor, speedToUseAsZoomFactor);
+    //MKCoordinateRegion updatedCoordinate = MKCoordinateRegionMakeWithDistance(emptyCoordinate, speedToUseAsZoomFactor, speedToUseAsZoomFactor);
+    MKCoordinateRegion updatedCoordinate = { { 0.0f, 0.0f }, { 0.0f, 0.0f } };
+    
+    updatedCoordinate.center = userLocation.location.coordinate;
+    updatedCoordinate.span.latitudeDelta = 0;
+    updatedCoordinate.span.longitudeDelta = speedToUseAsZoomFactor;
+    
+    speedToUseAsZoomFactor = userLocation.location.speed * 1;
     //NSLog(@"Our speed: %f", speedToUseAsZoomFactor);
-    [mapView setRegion:updatedCoordinate animated:YES];
+    
+    //[mapView setRegion:updatedCoordinate animated:YES];
+    //[mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+    //[mapView regionThatFits:updatedCoordinate];
 }
 @end

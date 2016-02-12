@@ -43,6 +43,8 @@
 -(void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region{
     NSLog(@"Monitoring regions");
     [manager requestStateForRegion:region];
+    
+    
 }
 
 -(void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region{

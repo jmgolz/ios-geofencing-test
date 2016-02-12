@@ -15,22 +15,39 @@
 
 @implementation ViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    if (self.locationManager.monitoredRegions) {
+        if (self.mapView.annotations.count== 0) {
+            for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
+                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+                
+                annotation.coordinate = region.center;
+                annotation.title = region.identifier;
+                [self.mapView addAnnotation:annotation];
+            }
+        }
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Map init
     self.mapViewLocationManagerDelegate = [[MapViewLocationUpdatesDelegate alloc] init];
     self.mapView.delegate = self.mapViewLocationManagerDelegate;
-    self.mapView.showsUserLocation = YES;    
-    
+    self.mapView.showsUserLocation = YES;
+
     //[self.mapView setCenterCoordinate:self.mapView.userLocation.coordinate];
-    MKCoordinateRegion initialCoordinate = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 250, 250);
+    MKCoordinateRegion initialCoordinate = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 10, 10);
     
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
     [self.mapView setRegion:initialCoordinate animated:YES];
     
     //Begin location monitoring
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManagerDelegate = [[LocationManagerDelegate alloc] init];
     self.locationManager.delegate = self.locationManagerDelegate;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    
     
     //Get user permission to use location services, then start monitoring
     [self handleLocationServicesAuthorizationCheck];
@@ -47,6 +64,8 @@
             NSLog(@"Double touched!");
             [self updateMap:[touch locationInView:touch.view]];
         }
+        
+        
     }
 }
 

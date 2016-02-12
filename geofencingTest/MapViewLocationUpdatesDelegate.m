@@ -17,7 +17,7 @@
     }
     
     MKCoordinateRegion updatedCoordinate = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, speedToUseAsZoomFactor, speedToUseAsZoomFactor);
-    NSLog(@"Our speed: %f", speedToUseAsZoomFactor);
+    //NSLog(@"Our speed: %f", speedToUseAsZoomFactor);
     [mapView setRegion:updatedCoordinate animated:YES];
 }
 @end

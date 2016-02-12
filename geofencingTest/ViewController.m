@@ -23,7 +23,7 @@
     self.mapView.showsUserLocation = YES;    
     
     //[self.mapView setCenterCoordinate:self.mapView.userLocation.coordinate];
-    MKCoordinateRegion initialCoordinate = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 50, 50);
+    MKCoordinateRegion initialCoordinate = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 250, 250);
     
     [self.mapView setRegion:initialCoordinate animated:YES];
     
@@ -51,16 +51,22 @@
 }
 
 -(void)updateMap:(CGPoint)pointTouched{
+    NSUInteger numberOfCheckpoints = [[self.locationManager monitoredRegions] count];
+    NSString *checkpointIdentifierString = [NSString stringWithFormat:@"Checkpoint %i", (unsigned int)(numberOfCheckpoints + 1)];
     MKPointAnnotation *annotationFromTouch = [[MKPointAnnotation alloc] init];
     
     CLLocationCoordinate2D coordinateToAdd = [self.mapView convertPoint:pointTouched toCoordinateFromView:self.mapView];
+    CLRegion *geofenceRegionFromDoubleTapGesture = [[CLCircularRegion alloc]
+                                                    initWithCenter:coordinateToAdd radius:5 identifier:checkpointIdentifierString];
+    
     
     annotationFromTouch.coordinate = coordinateToAdd;
-    annotationFromTouch.title = @"Checkpoint";
+    annotationFromTouch.title = checkpointIdentifierString;
     
     NSLog(@"coord: x:%f, y:%f", annotationFromTouch.coordinate.latitude, annotationFromTouch.coordinate.longitude);
     
-    [self.mapView addAnnotation:annotationFromTouch];    
+    [self.mapView addAnnotation:annotationFromTouch];
+    [self.locationManager startMonitoringForRegion:geofenceRegionFromDoubleTapGesture];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,7 +102,7 @@
     CLLocationCoordinate2D tampaGeoFenceCoords = CLLocationCoordinate2DMake(27.950575, -82.457178);
     CLRegion *tampaGeoFence = [[CLCircularRegion alloc] initWithCenter:tampaGeoFenceCoords radius:1000 identifier:@"tampa"];
     //[self.locationManager startMonitoringForRegion:tampaGeoFence];
-    [self.locationManager startUpdatingLocation];
+    //[self.locationManager startUpdatingLocation];
 }
 
 

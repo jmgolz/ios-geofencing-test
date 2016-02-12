@@ -48,11 +48,11 @@
 -(void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region{
     switch (state) {
         case CLRegionStateInside:
-            NSLog(@"Started inside of region: %@", region.identifier);
+            //NSLog(@"Started inside of region: %@", region.identifier);
             break;
             
         case CLRegionStateOutside:
-            NSLog(@"Started OUTSIDE of region: %@", region.identifier);
+            //NSLog(@"Started OUTSIDE of region: %@", region.identifier);
             break;
             
         default:
@@ -65,11 +65,11 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region{
-    NSLog(@"We made it! We are in %@", region.identifier);
+    NSLog(@"Entered %@", region.identifier);
 }
 
 -(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region{
-    NSLog(@"Exited the city of: %@", region.identifier);
+    NSLog(@"Exited %@", region.identifier);
 }
 
 -(BOOL)isUserCurrentlyInGeofence:(CLCircularRegion*)region currentLocationObject:(CLLocation *)currentLocation{

@@ -18,13 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onb-cB-cvF">
-                                <rect key="frame" x="20" y="550" width="560" height="30"/>
-                                <state key="normal" title="Scan for current addr"/>
-                                <connections>
-                                    <action selector="doScan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t2z-B5-Wgo"/>
-                                </connections>
-                            </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lLE-Wv-EeR">
                                 <rect key="frame" x="20" y="28" width="560" height="472"/>
                                 <gestureRecognizers/>
@@ -32,30 +25,17 @@
                                     <outletCollection property="gestureRecognizers" destination="rWm-In-cbu" appends="YES" id="0Ko-a1-wmB"/>
                                 </connections>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Scans Attempted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04U-0Y-NdY">
-                                <rect key="frame" x="20" y="527" width="560" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="04U-0Y-NdY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6Cs-MT-mcF"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="onb-cB-cvF" secondAttribute="bottom" constant="20" id="H1b-HQ-91B"/>
                             <constraint firstAttribute="leadingMargin" secondItem="lLE-Wv-EeR" secondAttribute="leading" id="Mx8-F1-Dde"/>
                             <constraint firstItem="lLE-Wv-EeR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="dQM-N9-1l9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lLE-Wv-EeR" secondAttribute="trailing" id="gDm-FQ-diN"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lLE-Wv-EeR" secondAttribute="bottom" constant="100" id="jXb-wp-U4c"/>
-                            <constraint firstItem="onb-cB-cvF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jqH-gM-Yz8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="04U-0Y-NdY" secondAttribute="trailing" id="ohj-kf-LBG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="onb-cB-cvF" secondAttribute="trailing" id="ucI-n2-6IE"/>
-                            <constraint firstItem="04U-0Y-NdY" firstAttribute="top" secondItem="lLE-Wv-EeR" secondAttribute="bottom" constant="27" id="vk8-0E-MbG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="lLE-Wv-EeR" id="AVF-jf-Pce"/>
-                        <outlet property="scansLabel" destination="04U-0Y-NdY" id="h9F-vB-Gus"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

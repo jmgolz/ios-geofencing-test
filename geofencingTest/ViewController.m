@@ -15,6 +15,24 @@
 
 @implementation ViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    if (self.locationManager.monitoredRegions) {
+        NSLog(@"(LocMgr) Monitored locations... %@", self.locationManager.monitoredRegions.debugDescription);
+        //NSLog(@"(MapKit) Annotations... %@", self.mapView.annotations.debugDescription);
+        
+        if (self.mapView.annotations.count== 0) {
+            for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
+                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+                
+                annotation.coordinate = region.center;
+                annotation.title = region.identifier;
+                [self.mapView addAnnotation:annotation];
+            }
+            NSLog(@"(MapKit) Annotations... %@", self.mapView.annotations.debugDescription);
+        }
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Map init

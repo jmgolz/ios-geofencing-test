@@ -8,18 +8,25 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "LocationManagerDelegate.h"
+#import <MapKit/MapKit.h>
 
-@interface ViewController : UIViewController
+#import "LocationManagerDelegate.h"
+#import "MapViewLocationUpdatesDelegate.h"
+
+@interface ViewController : UIViewController<UIGestureRecognizerDelegate>
+
 @property CLLocationManager *locationManager;
 @property LocationManagerDelegate *locationManagerDelegate;
+@property MapViewLocationUpdatesDelegate *mapViewLocationManagerDelegate;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *mapTapRecognizer;
 
-
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *scansLabel;
 
 - (IBAction)doScan:(id)sender;
 - (void)handleLocationServicesAuthorizationCheck;
 - (void)setUpGeoFences;
+- (void)updateMap:(CGPoint)pointTouched;
 
 @end
 

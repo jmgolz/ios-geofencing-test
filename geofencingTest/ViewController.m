@@ -31,6 +31,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+    
     //Map init
     self.mapViewLocationManagerDelegate = [[MapViewLocationUpdatesDelegate alloc] init];
     self.mapView.delegate = self.mapViewLocationManagerDelegate;

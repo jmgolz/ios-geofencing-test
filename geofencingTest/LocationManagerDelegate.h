@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface LocationManagerDelegate : NSObject<CLLocationManagerDelegate>
+@property AVSpeechSynthesizer *textToSpeechPlayer;
 -(BOOL)isUserCurrentlyInGeofence:(CLCircularRegion*)region currentLocationObject:(CLLocation *)currentLocation;
+-(void)checkpointAudioNotification:(NSString*)textForSpeech;
 @end

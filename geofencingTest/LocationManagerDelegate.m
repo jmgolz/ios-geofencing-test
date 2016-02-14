@@ -68,15 +68,28 @@
 
 -(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region{
     NSLog(@"Entered %@", region.identifier);
+    NSString *textForSpeaking = [NSString stringWithFormat:@"Entered %@",region.identifier];
+    [self checkpointAudioNotification:textForSpeaking];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region{
     NSLog(@"Exited %@", region.identifier);
+    NSString *textForSpeaking = [NSString stringWithFormat:@"Exited %@",region.identifier];
+    [self checkpointAudioNotification:textForSpeaking];
+
 }
 
 -(BOOL)isUserCurrentlyInGeofence:(CLCircularRegion*)region currentLocationObject:(CLLocation *)currentLocation{
     
     return YES;
+}
+
+-(void)checkpointAudioNotification:(NSString*)textForSpeech{
+    AVSpeechUtterance *textForSpokenWord = [[AVSpeechUtterance alloc] initWithString:textForSpeech];
+    textForSpokenWord.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-GB"];
+    
+    self.textToSpeechPlayer = [[AVSpeechSynthesizer alloc] init];
+    [self.textToSpeechPlayer speakUtterance:textForSpokenWord];
 }
 
 @end

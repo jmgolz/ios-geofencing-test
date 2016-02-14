@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84DEFC2F1C6F785100607577 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DEFC2E1C6F785100607577 /* AVFoundation.framework */; };
 		E5AD6F8E1C68F07D007C7F76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F8D1C68F07D007C7F76 /* main.m */; };
 		E5AD6F911C68F07D007C7F76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F901C68F07D007C7F76 /* AppDelegate.m */; };
 		E5AD6F941C68F07D007C7F76 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F931C68F07D007C7F76 /* ViewController.m */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84DEFC2E1C6F785100607577 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E5AD6F891C68F07D007C7F76 /* geofencingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geofencingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AD6F8D1C68F07D007C7F76 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E5AD6F8F1C68F07D007C7F76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84DEFC2F1C6F785100607577 /* AVFoundation.framework in Frameworks */,
 				E5AD700C1C6A6EA9007C7F76 /* MapKit.framework in Frameworks */,
 				E5AD6FC31C68F098007C7F76 /* CoreLocation.framework in Frameworks */,
 			);
@@ -97,6 +100,7 @@
 		E5AD6F801C68F07D007C7F76 = {
 			isa = PBXGroup;
 			children = (
+				84DEFC2E1C6F785100607577 /* AVFoundation.framework */,
 				E5AD700B1C6A6EA9007C7F76 /* MapKit.framework */,
 				E5AD70091C694C97007C7F76 /* Test3.gpx */,
 				E5AD6FC21C68F098007C7F76 /* CoreLocation.framework */,

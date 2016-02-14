@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -23,23 +23,36 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="rWm-In-cbu" appends="YES" id="0Ko-a1-wmB"/>
+                                    <outletCollection property="gestureRecognizers" destination="lts-1Q-cEa" appends="YES" id="4Qz-5T-6yn"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0JC-3w-uMB">
+                                <rect key="frame" x="20" y="520" width="143" height="30"/>
+                                <state key="normal" title="Clear all checkpoints"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="lLE-Wv-EeR" secondAttribute="leading" id="Mx8-F1-Dde"/>
                             <constraint firstItem="lLE-Wv-EeR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="dQM-N9-1l9"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="0JC-3w-uMB" secondAttribute="leading" id="fsw-nO-iLd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lLE-Wv-EeR" secondAttribute="trailing" id="gDm-FQ-diN"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lLE-Wv-EeR" secondAttribute="bottom" constant="100" id="jXb-wp-U4c"/>
+                            <constraint firstItem="0JC-3w-uMB" firstAttribute="top" secondItem="lLE-Wv-EeR" secondAttribute="bottom" constant="20" id="tFd-eW-AEW"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mapLongPressGestureRecognizer" destination="lts-1Q-cEa" id="YSL-rB-zYu"/>
                         <outlet property="mapView" destination="lLE-Wv-EeR" id="AVF-jf-Pce"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="rWm-In-cbu"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="lts-1Q-cEa">
+                    <connections>
+                        <action selector="longPressGestureHandler:" destination="BYZ-38-t0r" id="hqN-PV-pbd"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="281" y="390"/>
         </scene>

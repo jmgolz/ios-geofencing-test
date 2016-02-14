@@ -58,7 +58,13 @@
     self.mapTapRecognizer = [[UITapGestureRecognizer alloc] init];
     self.mapTapRecognizer.numberOfTapsRequired = 2;
     self.mapTapRecognizer.delegate = self;
+    
+    //Allocate long-press gesture recognizer
+    self.mapLongPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] init];
+    self.mapLongPressGestureRecognizer.delegate = self;
+
 }
+
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     for (UITouch *touch in touches) {
@@ -70,6 +76,7 @@
         
     }
 }
+
 
 -(void)updateMap:(CGPoint)pointTouched{
     NSUInteger numberOfCheckpoints = [[self.locationManager monitoredRegions] count];
@@ -95,6 +102,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture{
+    if(tapGesture.state == UIGestureRecognizerStateBegan){
+        [self updateMap:[tapGesture locationInView:tapGesture.view]];
+    }
+}
 
 - (IBAction)doScan:(id)sender {
     [self handleLocationServicesAuthorizationCheck];

@@ -54,26 +54,30 @@
     //Get user permission to use location services, then start monitoring
     [self handleLocationServicesAuthorizationCheck];
     
+    //delete?
     //Allocate gesture recognizer
-    self.mapTapRecognizer = [[UITapGestureRecognizer alloc] init];
-    self.mapTapRecognizer.numberOfTapsRequired = 2;
-    self.mapTapRecognizer.delegate = self;
+//    self.mapTapRecognizer = [[UITapGestureRecognizer alloc] init];
+//    self.mapTapRecognizer.numberOfTapsRequired = 2;
+//    self.mapTapRecognizer.delegate = self;
     
     //Allocate long-press gesture recognizer
     self.mapLongPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] init];
     self.mapLongPressGestureRecognizer.delegate = self;
 
+//Debug - get all gestures associated with map view
+//    for (UIGestureRecognizer* recognizer in self.mapView.gestureRecognizers) {
+//        NSLog(@"%@",recognizer);
+//    }
+
 }
 
-
+//delete?
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     for (UITouch *touch in touches) {
         if (touch.tapCount == 2) {
             NSLog(@"Double touched!");
             [self updateMap:[touch locationInView:touch.view]];
         }
-        
-        
     }
 }
 
@@ -103,16 +107,20 @@
 }
 
 
+- (IBAction)clearAllCheckpoints:(id)sender {
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    
+    for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
+        [self.locationManager stopMonitoringForRegion:region];
+    }
+}
+
 - (void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture{
     if(tapGesture.state == UIGestureRecognizerStateBegan){
         [self updateMap:[tapGesture locationInView:tapGesture.view]];
     }
 }
 
-- (IBAction)doScan:(id)sender {
-    [self handleLocationServicesAuthorizationCheck];
-    self.scansLabel.text = @"Completed Scan";
-}
 
 - (void)handleLocationServicesAuthorizationCheck{
     switch ([CLLocationManager authorizationStatus]) {

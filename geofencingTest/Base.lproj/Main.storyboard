@@ -22,13 +22,15 @@
                                 <rect key="frame" x="20" y="28" width="560" height="472"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="rWm-In-cbu" appends="YES" id="0Ko-a1-wmB"/>
                                     <outletCollection property="gestureRecognizers" destination="lts-1Q-cEa" appends="YES" id="4Qz-5T-6yn"/>
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0JC-3w-uMB">
                                 <rect key="frame" x="20" y="520" width="143" height="30"/>
                                 <state key="normal" title="Clear all checkpoints"/>
+                                <connections>
+                                    <action selector="clearAllCheckpoints:" destination="BYZ-38-t0r" eventType="touchUpInside" id="atr-6G-Kge"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -47,7 +49,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="rWm-In-cbu"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="lts-1Q-cEa">
                     <connections>
                         <action selector="longPressGestureHandler:" destination="BYZ-38-t0r" id="hqN-PV-pbd"/>

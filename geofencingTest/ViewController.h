@@ -18,14 +18,18 @@
 @property CLLocationManager *locationManager;
 @property LocationManagerDelegate *locationManagerDelegate;
 @property MapViewLocationUpdatesDelegate *mapViewLocationManagerDelegate;
-@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *mapTapRecognizer;
+
+//Possible delete?
+//@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *mapTapRecognizer;
+
+
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *mapLongPressGestureRecognizer;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *scansLabel;
+- (IBAction)clearAllCheckpoints:(id)sender;
 
 - (void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture;
-- (IBAction)doScan:(id)sender;
 - (void)handleLocationServicesAuthorizationCheck;
 - (void)setUpGeoFences;
 - (void)updateMap:(CGPoint)pointTouched;

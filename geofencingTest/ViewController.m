@@ -38,7 +38,6 @@
     self.mapView.delegate = self.mapViewLocationManagerDelegate;
     self.mapView.showsUserLocation = YES;
 
-    //[self.mapView setCenterCoordinate:self.mapView.userLocation.coordinate];
     MKCoordinateRegion initialCoordinate = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 10, 10);
     
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
@@ -53,21 +52,10 @@
     
     //Get user permission to use location services, then start monitoring
     [self handleLocationServicesAuthorizationCheck];
-    
-    //delete?
-    //Allocate gesture recognizer
-//    self.mapTapRecognizer = [[UITapGestureRecognizer alloc] init];
-//    self.mapTapRecognizer.numberOfTapsRequired = 2;
-//    self.mapTapRecognizer.delegate = self;
-    
+
     //Allocate long-press gesture recognizer
     self.mapLongPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] init];
     self.mapLongPressGestureRecognizer.delegate = self;
-
-//Debug - get all gestures associated with map view
-//    for (UIGestureRecognizer* recognizer in self.mapView.gestureRecognizers) {
-//        NSLog(@"%@",recognizer);
-//    }
 
 }
 
@@ -130,7 +118,7 @@
             return;
             
         case kCLAuthorizationStatusAuthorizedAlways:
-            [self setUpGeoFences];
+
             return;
             
         case kCLAuthorizationStatusDenied:
@@ -139,13 +127,4 @@
             return;
     }
 }
-
--(void)setUpGeoFences{
-    CLLocationCoordinate2D tampaGeoFenceCoords = CLLocationCoordinate2DMake(27.950575, -82.457178);
-    CLRegion *tampaGeoFence = [[CLCircularRegion alloc] initWithCenter:tampaGeoFenceCoords radius:1000 identifier:@"tampa"];
-    //[self.locationManager startMonitoringForRegion:tampaGeoFence];
-    //[self.locationManager startUpdatingLocation];
-}
-
-
 @end

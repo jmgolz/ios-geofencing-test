@@ -31,8 +31,6 @@
 
 - (void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture;
 - (void)handleLocationServicesAuthorizationCheck;
-- (void)setUpGeoFences;
 - (void)updateMap:(CGPoint)pointTouched;
-
 @end
 

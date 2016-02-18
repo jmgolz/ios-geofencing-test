@@ -19,10 +19,6 @@
 @property LocationManagerDelegate *locationManagerDelegate;
 @property MapViewLocationUpdatesDelegate *mapViewLocationManagerDelegate;
 
-//Possible delete?
-//@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *mapTapRecognizer;
-
-
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *mapLongPressGestureRecognizer;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -31,8 +27,5 @@
 
 - (void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture;
 - (void)handleLocationServicesAuthorizationCheck;
-- (void)setUpGeoFences;
-- (void)updateMap:(CGPoint)pointTouched;
-
 @end
 

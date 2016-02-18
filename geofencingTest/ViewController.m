@@ -38,7 +38,6 @@
     self.mapView.delegate = self.mapViewLocationManagerDelegate;
     self.mapView.showsUserLocation = YES;
 
-    //[self.mapView setCenterCoordinate:self.mapView.userLocation.coordinate];
     MKCoordinateRegion initialCoordinate = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 10, 10);
     
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
@@ -53,52 +52,10 @@
     
     //Get user permission to use location services, then start monitoring
     [self handleLocationServicesAuthorizationCheck];
-    
-    //delete?
-    //Allocate gesture recognizer
-//    self.mapTapRecognizer = [[UITapGestureRecognizer alloc] init];
-//    self.mapTapRecognizer.numberOfTapsRequired = 2;
-//    self.mapTapRecognizer.delegate = self;
-    
+
     //Allocate long-press gesture recognizer
     self.mapLongPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] init];
     self.mapLongPressGestureRecognizer.delegate = self;
-
-//Debug - get all gestures associated with map view
-//    for (UIGestureRecognizer* recognizer in self.mapView.gestureRecognizers) {
-//        NSLog(@"%@",recognizer);
-//    }
-
-}
-
-//delete?
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    for (UITouch *touch in touches) {
-        if (touch.tapCount == 2) {
-            NSLog(@"Double touched!");
-            [self updateMap:[touch locationInView:touch.view]];
-        }
-    }
-}
-
-
--(void)updateMap:(CGPoint)pointTouched{
-    NSUInteger numberOfCheckpoints = [[self.locationManager monitoredRegions] count];
-    NSString *checkpointIdentifierString = [NSString stringWithFormat:@"Checkpoint %i", (unsigned int)(numberOfCheckpoints + 1)];
-    MKPointAnnotation *annotationFromTouch = [[MKPointAnnotation alloc] init];
-    
-    CLLocationCoordinate2D coordinateToAdd = [self.mapView convertPoint:pointTouched toCoordinateFromView:self.mapView];
-    CLRegion *geofenceRegionFromDoubleTapGesture = [[CLCircularRegion alloc]
-                                                    initWithCenter:coordinateToAdd radius:5 identifier:checkpointIdentifierString];
-    
-    
-    annotationFromTouch.coordinate = coordinateToAdd;
-    annotationFromTouch.title = checkpointIdentifierString;
-    
-    NSLog(@"coord: x:%f, y:%f", annotationFromTouch.coordinate.latitude, annotationFromTouch.coordinate.longitude);
-    
-    [self.mapView addAnnotation:annotationFromTouch];
-    [self.locationManager startMonitoringForRegion:geofenceRegionFromDoubleTapGesture];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -117,7 +74,7 @@
 
 - (void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture{
     if(tapGesture.state == UIGestureRecognizerStateBegan){
-        [self updateMap:[tapGesture locationInView:tapGesture.view]];
+        [[self mapViewLocationManagerDelegate] updateMap:[tapGesture locationInView:tapGesture.view] locationManagerObject:self.locationManager mapViewToUpdate:self.mapView];
     }
 }
 
@@ -130,7 +87,7 @@
             return;
             
         case kCLAuthorizationStatusAuthorizedAlways:
-            [self setUpGeoFences];
+
             return;
             
         case kCLAuthorizationStatusDenied:
@@ -139,13 +96,4 @@
             return;
     }
 }
-
--(void)setUpGeoFences{
-    CLLocationCoordinate2D tampaGeoFenceCoords = CLLocationCoordinate2DMake(27.950575, -82.457178);
-    CLRegion *tampaGeoFence = [[CLCircularRegion alloc] initWithCenter:tampaGeoFenceCoords radius:1000 identifier:@"tampa"];
-    //[self.locationManager startMonitoringForRegion:tampaGeoFence];
-    //[self.locationManager startUpdatingLocation];
-}
-
-
 @end

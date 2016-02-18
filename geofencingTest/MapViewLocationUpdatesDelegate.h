@@ -10,5 +10,5 @@
 #import <MapKit/MapKit.h>
 
 @interface MapViewLocationUpdatesDelegate : NSObject <MKMapViewDelegate>
-
+- (void)updateMap:(CGPoint)pointTouched locationManagerObject:(CLLocationManager*)locManager mapViewToUpdate:(MKMapView*)mapView;
 @end

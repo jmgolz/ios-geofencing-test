@@ -58,25 +58,6 @@
     self.mapLongPressGestureRecognizer.delegate = self;
 }
 
--(void)updateMap:(CGPoint)pointTouched{
-    NSUInteger numberOfCheckpoints = [[self.locationManager monitoredRegions] count];
-    NSString *checkpointIdentifierString = [NSString stringWithFormat:@"Checkpoint %i", (unsigned int)(numberOfCheckpoints + 1)];
-    MKPointAnnotation *annotationFromTouch = [[MKPointAnnotation alloc] init];
-    
-    CLLocationCoordinate2D coordinateToAdd = [self.mapView convertPoint:pointTouched toCoordinateFromView:self.mapView];
-    CLRegion *geofenceRegionFromDoubleTapGesture = [[CLCircularRegion alloc]
-                                                    initWithCenter:coordinateToAdd radius:5 identifier:checkpointIdentifierString];
-    
-    
-    annotationFromTouch.coordinate = coordinateToAdd;
-    annotationFromTouch.title = checkpointIdentifierString;
-    
-    NSLog(@"coord: x:%f, y:%f", annotationFromTouch.coordinate.latitude, annotationFromTouch.coordinate.longitude);
-    
-    [self.mapView addAnnotation:annotationFromTouch];
-    [self.locationManager startMonitoringForRegion:geofenceRegionFromDoubleTapGesture];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -93,7 +74,7 @@
 
 - (void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture{
     if(tapGesture.state == UIGestureRecognizerStateBegan){
-        [self updateMap:[tapGesture locationInView:tapGesture.view]];
+        [[self mapViewLocationManagerDelegate] updateMap:[tapGesture locationInView:tapGesture.view] locationManagerObject:self.locationManager mapViewToUpdate:self.mapView];
     }
 }
 

@@ -32,4 +32,24 @@
     //[mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
     //[mapView regionThatFits:updatedCoordinate];
 }
+
+- (void)updateMap:(CGPoint)pointTouched locationManagerObject:(CLLocationManager*)locManager mapViewToUpdate:(MKMapView*)mapView{
+    NSUInteger numberOfCheckpoints = [[locManager monitoredRegions] count];
+    NSString *checkpointIdentifierString = [NSString stringWithFormat:@"Checkpoint %i", (unsigned int)(numberOfCheckpoints + 1)];
+    MKPointAnnotation *annotationFromTouch = [[MKPointAnnotation alloc] init];
+    
+    CLLocationCoordinate2D coordinateToAdd = [mapView convertPoint:pointTouched toCoordinateFromView:mapView];
+    CLRegion *geofenceRegionFromDoubleTapGesture = [[CLCircularRegion alloc]
+                                                    initWithCenter:coordinateToAdd radius:5 identifier:checkpointIdentifierString];
+    
+    
+    annotationFromTouch.coordinate = coordinateToAdd;
+    annotationFromTouch.title = checkpointIdentifierString;
+    
+    NSLog(@"coord: x:%f, y:%f", annotationFromTouch.coordinate.latitude, annotationFromTouch.coordinate.longitude);
+    
+    [mapView addAnnotation:annotationFromTouch];
+    [locManager startMonitoringForRegion:geofenceRegionFromDoubleTapGesture];
+
+}
 @end

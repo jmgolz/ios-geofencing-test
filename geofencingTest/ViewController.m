@@ -56,19 +56,7 @@
     //Allocate long-press gesture recognizer
     self.mapLongPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] init];
     self.mapLongPressGestureRecognizer.delegate = self;
-
 }
-
-//delete?
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    for (UITouch *touch in touches) {
-        if (touch.tapCount == 2) {
-            NSLog(@"Double touched!");
-            [self updateMap:[touch locationInView:touch.view]];
-        }
-    }
-}
-
 
 -(void)updateMap:(CGPoint)pointTouched{
     NSUInteger numberOfCheckpoints = [[self.locationManager monitoredRegions] count];

@@ -35,10 +35,26 @@
 */
 
 - (IBAction)saveRoute:(id)sender {
-    
+    [self makeRouteSavedDialog:YES];
 }
 
 - (IBAction)cancelRouteSave:(id)sender {
 
+}
+
+- (void)makeRouteSavedDialog:(BOOL)didSaveRecord{
+    NSString *title;
+    NSString *body;
+    
+    if(didSaveRecord == YES){
+        title = @"Success!";
+        body  = @"Successfully saved route.";
+    } else {
+        title = @"Error!";
+        body  = @"There was a problem saving your route.";
+    }
+    UIAlertController *dialog = [UIAlertController alertControllerWithTitle:title message:body preferredStyle:UIAlertControllerStyleAlert];
+    [dialog addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:dialog animated:YES completion:nil];
 }
 @end

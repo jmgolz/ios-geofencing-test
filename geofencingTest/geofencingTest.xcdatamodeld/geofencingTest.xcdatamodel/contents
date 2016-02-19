@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F1021" minimumToolsVersion="Automatic">
+    <entity name="RouteData" representedClassName="RouteData" syncable="YES">
+        <attribute name="routeAuthor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="routeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeCreated" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="checkpoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RouteDataCheckpoints" syncable="YES"/>
+    </entity>
+    <entity name="RouteDataCheckpoints" syncable="YES">
+        <attribute name="checkpointName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="checkpointOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="checkpointRadius" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="RouteData" positionX="-63" positionY="9" width="128" height="103"/>
+        <element name="RouteDataCheckpoints" positionX="153" positionY="90" width="128" height="43"/>
+    </elements>
 </model>

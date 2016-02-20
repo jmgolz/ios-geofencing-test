@@ -25,6 +25,9 @@
     for (RouteData *routeItem in fetchRouteRequestResults) {
         if([routeItem valueForKey:@"checkpoints"]){
             NSLog(@"%@", [[routeItem valueForKey:@"checkpoints"] debugDescription]);
+            for (RouteCoordinate *coordinate in [routeItem valueForKey:@"checkpoints"]) {
+                NSLog(@"Latitude: %f Longitude %f", [coordinate.latitude floatValue], [coordinate.longitude floatValue]);
+            }
         }
     }
 

@@ -9,5 +9,8 @@
 #import <CoreData/CoreData.h>
 
 @interface RouteData : NSManagedObject
+@property NSString *routeAuthor;
+@property NSString *routeName;
+@property NSDate   *timeCreated;
 
 @end

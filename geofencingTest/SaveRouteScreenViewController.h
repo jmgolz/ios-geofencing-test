@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RouteStorageManager.h"
+#import "RouteData.h"
 
-@interface SaveRouteScreenViewController : UIViewController
+@interface SaveRouteScreenViewController : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *authorTextField;
 @property (weak, nonatomic) IBOutlet UITextField *routeNameTextField;
+@property RouteStorageManager *routeStorageManager;
 
 - (IBAction)saveRoute:(id)sender;
 - (IBAction)cancelRouteSave:(id)sender;

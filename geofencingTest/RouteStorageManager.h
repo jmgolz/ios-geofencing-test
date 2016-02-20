@@ -15,4 +15,5 @@
 @property NSPersistentStoreCoordinator *routeStorageStoreCoordinator;
 
 - (void)initializeCoreData;
+- (void)initializeCoreData2;
 @end

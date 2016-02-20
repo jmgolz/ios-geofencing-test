@@ -14,6 +14,10 @@
 
 @implementation SaveRouteScreenViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    self.routeStorageManager = [[RouteStorageManager alloc] init];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -35,7 +39,35 @@
 */
 
 - (IBAction)saveRoute:(id)sender {
-    [self makeRouteSavedDialog:YES];
+    //Create managed object, attach context to it
+    RouteData *routeDataManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"RouteData" inManagedObjectContext:self.routeStorageManager.routeStorageDataContext];
+    
+    routeDataManagedObject.routeAuthor = self.authorTextField.text;
+    routeDataManagedObject.routeName   = self.routeNameTextField.text;
+    
+    NSError *routeSaveError = nil;
+    [[self.routeStorageManager routeStorageDataContext] insertObject:routeDataManagedObject];
+    [[self.routeStorageManager routeStorageDataContext] save:&routeSaveError];
+    
+    if (routeSaveError != nil) {
+        [self makeRouteSavedDialog:NO];
+        NSLog(@"%@", routeSaveError.localizedDescription);
+    } else {
+        //Check the data got saved
+        [self makeRouteSavedDialog:YES];
+        NSError *dataRequestError = nil;
+        NSFetchRequest *fetchSavedRoute = [NSFetchRequest fetchRequestWithEntityName:@"RouteData"];
+        NSArray *fetchRouteRequestResults = [[self.routeStorageManager routeStorageDataContext] executeFetchRequest:fetchSavedRoute error:&dataRequestError];
+        
+        if (!fetchRouteRequestResults) {
+            NSLog(@"%@",dataRequestError.localizedDescription);
+        } else {
+            NSLog(@"Got results: %@", fetchRouteRequestResults.debugDescription);
+        }
+    }
+    
+    
+    
 }
 
 - (IBAction)cancelRouteSave:(id)sender {
@@ -56,5 +88,10 @@
     UIAlertController *dialog = [UIAlertController alertControllerWithTitle:title message:body preferredStyle:UIAlertControllerStyleAlert];
     [dialog addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:dialog animated:YES completion:nil];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 @end

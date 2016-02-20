@@ -10,4 +10,8 @@
 
 @implementation RouteData
 
+@dynamic routeAuthor;
+@dynamic routeName;
+@dynamic timeCreated;
+
 @end

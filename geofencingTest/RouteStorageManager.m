@@ -20,32 +20,16 @@
 }
 
 - (void)initializeCoreData{
-    //Create URL object that will point to the model file (geofencingTest.xcdatamodelid)
-    NSURL *pathToRouteModelUrl = [[NSBundle mainBundle] URLForResource:@"geofencingTest" withExtension:@"momd"];
+    NSManagedObjectModel *routeDataModel = [NSManagedObjectModel mergedModelFromBundles:[NSBundle allBundles]];
     
-    //Load the model(s) from the model file, check model was correctly loaded
-    self.routeStorageManagedObject = [[NSManagedObjectModel alloc] initWithContentsOfURL:pathToRouteModelUrl];
-    NSAssert(self.routeStorageManagedObject != nil, @"Error intializing the route storage managed object model");
+    NSPersistentStoreCoordinator *routeDataPersistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:routeDataModel];
     
-    //Instantiate the persistent store coordinator, object context
-    self.routeStorageStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.routeStorageManagedObject];
+    NSURL *url = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:@"Database.sqlite"];
+    
+    [routeDataPersistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:nil];
+    
     self.routeStorageDataContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    [self.routeStorageDataContext setPersistentStoreCoordinator:self.routeStorageStoreCoordinator];
-    
-    //Fetch records?
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSURL *documentsUrl = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    NSURL *storeUrl = [documentsUrl URLByAppendingPathComponent:@"geofencingTest.sqlite"];
-    
-    //Assign to main thread.
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        NSError *error = nil;
-        NSPersistentStoreCoordinator *routeStorageCoordinator = [[self routeStorageDataContext] persistentStoreCoordinator];
-        NSPersistentStore *store = [routeStorageCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error];
-        NSAssert(store != nil, @"Error initializing Persistent Store Coordinator: %@\n%@",error.localizedDescription, error.userInfo);
-    });
+    self.routeStorageDataContext.persistentStoreCoordinator = routeDataPersistentStoreCoordinator;
+
 }
-
-
-
 @end

@@ -11,8 +11,8 @@
 @interface RouteCoordinate : NSManagedObject
 
 @property NSString  *checkpointName;
-@property NSInteger *checkpointOrder;
-@property NSInteger *checkpointRadius;
+@property NSInteger checkpointOrder;
+@property NSInteger checkpointRadius;
 @property NSNumber  *latitude;
 @property NSNumber  *longitude;
 

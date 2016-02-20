@@ -11,6 +11,7 @@
 
 #import "RouteStorageManager.h"
 #import "RouteData.h"
+#import "RouteCoordinate.h"
 
 @interface SaveRouteScreenViewController : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *authorTextField;

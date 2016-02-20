@@ -16,7 +16,18 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.routeStorageManager = [[RouteStorageManager alloc] init];
-    NSLog(@"did get coords? %@", self.annotationsForStorage.debugDescription);
+    
+    //Get data if we have it...
+    NSError *dataRequestError = nil;
+    NSFetchRequest *fetchSavedRoute = [NSFetchRequest fetchRequestWithEntityName:@"RouteData"];
+    NSArray *fetchRouteRequestResults = [[self.routeStorageManager routeStorageDataContext] executeFetchRequest:fetchSavedRoute error:&dataRequestError];
+    
+    for (RouteData *routeItem in fetchRouteRequestResults) {
+        if([routeItem valueForKey:@"checkpoints"]){
+            NSLog(@"%@", [[routeItem valueForKey:@"checkpoints"] debugDescription]);
+        }
+    }
+
 }
 
 - (void)viewDidLoad {
@@ -42,9 +53,31 @@
 - (IBAction)saveRoute:(id)sender {
     //Create managed object, attach context to it
     RouteData *routeDataManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"RouteData" inManagedObjectContext:self.routeStorageManager.routeStorageDataContext];
+    RouteCoordinate *routeCoordinateManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"RouteDataCheckpoints" inManagedObjectContext:self.routeStorageManager.routeStorageDataContext];
     
     routeDataManagedObject.routeAuthor = self.authorTextField.text;
     routeDataManagedObject.routeName   = self.routeNameTextField.text;
+
+    NSMutableArray *checkpointCoordsHolder = [[NSMutableArray alloc] init];
+//    NSInteger counter = [[[NSNumber alloc] initWithUnsignedInteger:0] integerValue];
+//    NSInteger radius = [[[NSNumber alloc] initWithUnsignedInteger:250] integerValue];
+    
+    for (NSArray<id<MKAnnotation>> *annotation in self.annotationsForStorage) {
+        
+        MKPointAnnotation *mapAnnotation = (MKPointAnnotation*)annotation;
+        routeCoordinateManagedObject.checkpointName = mapAnnotation.title;
+        routeCoordinateManagedObject.latitude = [NSNumber numberWithDouble:mapAnnotation.coordinate.latitude];
+        routeCoordinateManagedObject.longitude = [NSNumber numberWithDouble:mapAnnotation.coordinate.longitude];
+        
+        routeCoordinateManagedObject.checkpointRadius = 0;
+        routeCoordinateManagedObject.checkpointOrder  = 0;
+        
+        [checkpointCoordsHolder addObject:routeCoordinateManagedObject];
+    }
+    
+    NSSet *checkpointCoordsCollection = [NSSet setWithArray:checkpointCoordsHolder];
+    
+    [routeDataManagedObject setValue:checkpointCoordsCollection forKey:@"checkpoints"];
     
     NSError *routeSaveError = nil;
     [[self.routeStorageManager routeStorageDataContext] insertObject:routeDataManagedObject];

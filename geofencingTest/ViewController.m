@@ -96,4 +96,12 @@
             return;
     }
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    SaveRouteScreenViewController *destinationViewController = [segue destinationViewController];
+    destinationViewController.annotationsForStorage = [self.mapView annotations];    
+}
+
 @end

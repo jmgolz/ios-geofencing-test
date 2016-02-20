@@ -16,6 +16,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.routeStorageManager = [[RouteStorageManager alloc] init];
+    NSLog(@"did get coords? %@", self.annotationsForStorage.debugDescription);
 }
 
 - (void)viewDidLoad {

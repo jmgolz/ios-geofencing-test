@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84B9B0851C78D7B000C73246 /* RouteCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9B0841C78D7B000C73246 /* RouteCoordinate.m */; };
 		84DEFC2F1C6F785100607577 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DEFC2E1C6F785100607577 /* AVFoundation.framework */; };
 		E533B47C1C777B200068B359 /* RouteData.m in Sources */ = {isa = PBXBuildFile; fileRef = E533B47B1C777B200068B359 /* RouteData.m */; };
 		E533B47F1C778E5D0068B359 /* RouteStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E533B47E1C778E5D0068B359 /* RouteStorageManager.m */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84B9B0831C78D7B000C73246 /* RouteCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteCoordinate.h; sourceTree = "<group>"; };
+		84B9B0841C78D7B000C73246 /* RouteCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteCoordinate.m; sourceTree = "<group>"; };
 		84DEFC2E1C6F785100607577 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E533B47A1C777B200068B359 /* RouteData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteData.h; sourceTree = "<group>"; };
 		E533B47B1C777B200068B359 /* RouteData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteData.m; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 				E533B47B1C777B200068B359 /* RouteData.m */,
 				E533B47D1C778E5D0068B359 /* RouteStorageManager.h */,
 				E533B47E1C778E5D0068B359 /* RouteStorageManager.m */,
+				84B9B0831C78D7B000C73246 /* RouteCoordinate.h */,
+				84B9B0841C78D7B000C73246 /* RouteCoordinate.m */,
 			);
 			name = "Data Storage";
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 				E533B47C1C777B200068B359 /* RouteData.m in Sources */,
 				E5AD6F911C68F07D007C7F76 /* AppDelegate.m in Sources */,
 				E5AD700F1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.m in Sources */,
+				84B9B0851C78D7B000C73246 /* RouteCoordinate.m in Sources */,
 				E5AD6F8E1C68F07D007C7F76 /* main.m in Sources */,
 				E533B47F1C778E5D0068B359 /* RouteStorageManager.m in Sources */,
 			);

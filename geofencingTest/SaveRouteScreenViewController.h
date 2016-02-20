@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+
 #import "RouteStorageManager.h"
 #import "RouteData.h"
 
@@ -14,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *authorTextField;
 @property (weak, nonatomic) IBOutlet UITextField *routeNameTextField;
 @property RouteStorageManager *routeStorageManager;
+@property NSArray<id<MKAnnotation>> *annotationsForStorage;
 
 - (IBAction)saveRoute:(id)sender;
 - (IBAction)cancelRouteSave:(id)sender;

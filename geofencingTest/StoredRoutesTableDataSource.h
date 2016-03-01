@@ -12,6 +12,7 @@
 #import "StoredRoutesScreenTableCell.h"
 #import "RouteStorageManager.h"
 #import "RouteData.h"
+#import "RouteCoordinate.h"
 
 @interface StoredRoutesTableDataSource : NSObject<UITableViewDataSource>
 @property RouteStorageManager *storedRoutes;

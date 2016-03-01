@@ -54,6 +54,7 @@
 */
 
 - (IBAction)saveRoute:(id)sender {
+
     //Create managed object, attach context to it
     RouteData *routeDataManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"RouteData" inManagedObjectContext:self.routeStorageManager.routeStorageDataContext];
     RouteCoordinate *routeCoordinateManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"RouteDataCheckpoints" inManagedObjectContext:self.routeStorageManager.routeStorageDataContext];
@@ -62,12 +63,12 @@
     routeDataManagedObject.routeName   = self.routeNameTextField.text;
 
     NSMutableArray *checkpointCoordsHolder = [[NSMutableArray alloc] init];
-//    NSInteger counter = [[[NSNumber alloc] initWithUnsignedInteger:0] integerValue];
-//    NSInteger radius = [[[NSNumber alloc] initWithUnsignedInteger:250] integerValue];
     
     for (NSArray<id<MKAnnotation>> *annotation in self.annotationsForStorage) {
         
         MKPointAnnotation *mapAnnotation = (MKPointAnnotation*)annotation;
+        
+        
         routeCoordinateManagedObject.checkpointName = mapAnnotation.title;
         routeCoordinateManagedObject.latitude = [NSNumber numberWithDouble:mapAnnotation.coordinate.latitude];
         routeCoordinateManagedObject.longitude = [NSNumber numberWithDouble:mapAnnotation.coordinate.longitude];
@@ -76,10 +77,10 @@
         routeCoordinateManagedObject.checkpointOrder  = 0;
         
         [checkpointCoordsHolder addObject:routeCoordinateManagedObject];
+        
     }
     
     NSSet *checkpointCoordsCollection = [NSSet setWithArray:checkpointCoordsHolder];
-    
     [routeDataManagedObject setValue:checkpointCoordsCollection forKey:@"checkpoints"];
     
     NSError *routeSaveError = nil;

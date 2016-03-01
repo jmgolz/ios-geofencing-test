@@ -100,7 +100,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([segue.identifier isEqualToString:@"SegueToMapScreen"]){
+    if([segue.identifier isEqualToString:@"segueToSaveRoute"]){
         SaveRouteScreenViewController *destinationViewController = [segue destinationViewController];
         destinationViewController.annotationsForStorage = [self.mapView annotations];
     }

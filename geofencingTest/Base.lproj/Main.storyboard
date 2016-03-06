@@ -154,7 +154,6 @@
                                     <outlet property="dateSaved" destination="6d9-ns-qrE" id="dKs-lr-OWD"/>
                                     <outlet property="routeAuthor" destination="QB7-Ab-RoI" id="hIP-KD-eOk"/>
                                     <outlet property="routeName" destination="Hoy-zm-2Pc" id="DA7-FD-9Zn"/>
-                                    <segue destination="eWm-EJ-s6q" kind="show" id="oNi-NJ-jQR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -165,11 +164,12 @@
                     </tableView>
                     <connections>
                         <outlet property="tableView" destination="PMG-rw-bf1" id="Mbh-wa-hS9"/>
+                        <segue destination="eWm-EJ-s6q" kind="show" identifier="segueToDetailVew" id="7V6-g1-dE4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9v-A3-s4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840" y="609"/>
+            <point key="canvasLocation" x="857" y="614"/>
         </scene>
         <!--Selected Route Detail View Controller-->
         <scene sceneID="4Rv-4f-NLN">

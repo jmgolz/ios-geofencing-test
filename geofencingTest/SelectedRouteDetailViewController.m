@@ -17,6 +17,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if(![self.routeData isEqual:nil]){
+        self.routeAuthorLabel.text = self.routeData.routeAuthor;
+        self.routeNameLabel.text   = self.routeData.routeName;
+    }
+    
+    //for (RouteData *routeItem in fetchRouteRequestResults) {
+        if([self.routeData valueForKey:@"checkpoints"]){
+            NSLog(@"%@", [[self.routeData valueForKey:@"checkpoints"] debugDescription]);
+            for (RouteCoordinate *coordinate in [self.routeData valueForKey:@"checkpoints"]) {
+                NSLog(@"Latitude: %f Longitude %f", [coordinate.latitude floatValue], [coordinate.longitude floatValue]);
+                MKPointAnnotation *checkpoint = [[MKPointAnnotation alloc] init];
+                checkpoint.coordinate = CLLocationCoordinate2DMake([coordinate.latitude doubleValue], [coordinate.longitude doubleValue]);
+                [self.routePathDisplayMap addAnnotation:checkpoint];
+            }
+        }
+    //}
+    
+    MKCoordinateRegion region;
+    MKCoordinateSpan   span;
+    
+    span.latitudeDelta = 0.01;
+    span.longitudeDelta = 0.1;
+    region.center = [[[self.routePathDisplayMap annotations] objectAtIndex:0] coordinate];
+    region.span = span;
+    [self.routePathDisplayMap setRegion:region animated:YES];
+    [self.routePathDisplayMap regionThatFits:region];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

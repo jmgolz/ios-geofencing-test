@@ -28,19 +28,9 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    RouteData *routeData = [self.tableDataSource.fetchResults objectAtIndex:indexPath.row];
-//    for (RouteData *routeItem in fetchRouteRequestResults) {
-        if([routeData valueForKey:@"checkpoints"]){
-            NSLog(@"%@", [[routeData valueForKey:@"checkpoints"] debugDescription]);
-            for (RouteCoordinate *coordinate in [routeData valueForKey:@"checkpoints"]) {
-                NSLog(@"Latitude: %f Longitude %f", [coordinate.latitude floatValue], [coordinate.longitude floatValue]);
-            }
-        }
-//    }
-
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];    
+    self.routeData = [self.tableDataSource.fetchResults objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"segueToDetailVew" sender:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,14 +39,13 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([[segue identifier] isEqualToString:@"segueToDetailVew"]){
+        [(SelectedRouteDetailViewController*)[segue destinationViewController] setRouteData:self.routeData];
+    }
+}
 @end

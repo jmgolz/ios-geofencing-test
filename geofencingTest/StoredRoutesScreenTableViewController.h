@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "StoredRoutesTableDataSource.h"
+#import "SelectedRouteDetailViewController.h"
 #import "RouteData.h"
 #import "RouteCoordinate.h"
 
+
 @interface StoredRoutesScreenTableViewController : UITableViewController<UITableViewDelegate>
-@property StoredRoutesTableDataSource *tableDataSource;
+@property StoredRoutesTableDataSource * tableDataSource;
+@property NSArray                     * routeDetailsForMapScreen;
+@property RouteData                   * routeData;
 @end

@@ -16,9 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableDataSource = [[StoredRoutesTableDataSource alloc] init];
+    self.tableDataSource      = [[StoredRoutesTableDataSource alloc] init];
     self.tableView.dataSource = self.tableDataSource;
-    self.tableView.delegate = self;
+    self.tableView.delegate   = self;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -30,6 +30,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%@",[[self.tableDataSource.fetchResults objectAtIndex:indexPath.row] debugDescription]);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    RouteData *routeData = [self.tableDataSource.fetchResults objectAtIndex:indexPath.row];
+    RouteCoordinate *routeDataCoordinates = [[RouteCoordinate alloc] initWithEntity:[NSEntityDescription entityForName:@"RouteDataCheckpoints" inManagedObjectContext:routeData.managedObjectContext] insertIntoManagedObjectContext:routeDataCoordinates.managedObjectContext];
+
+    //NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    //NSError *error;
+    //NSLog(@"checkpoints? %@", [[[routeData entity] subentities] debugDescription]);
+    NSLog(@"checkpoints? %@", routeDataCoordinates.debugDescription);
+    
 }
 
 - (void)didReceiveMemoryWarning {

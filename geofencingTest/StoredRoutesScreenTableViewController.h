@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "StoredRoutesTableDataSource.h"
+#import "RouteData.h"
+#import "RouteCoordinate.h"
 
 @interface StoredRoutesScreenTableViewController : UITableViewController<UITableViewDelegate>
 @property StoredRoutesTableDataSource *tableDataSource;

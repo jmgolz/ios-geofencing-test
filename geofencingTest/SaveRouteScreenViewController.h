@@ -14,8 +14,8 @@
 #import "RouteCoordinate.h"
 
 @interface SaveRouteScreenViewController : UIViewController<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *authorTextField;
-@property (weak, nonatomic) IBOutlet UITextField *routeNameTextField;
+@property (weak, nonatomic) IBOutlet              UITextField         *authorTextField;
+@property (weak, nonatomic) IBOutlet              UITextField         *routeNameTextField;
 @property RouteStorageManager *routeStorageManager;
 @property NSArray<id<MKAnnotation>> *annotationsForStorage;
 

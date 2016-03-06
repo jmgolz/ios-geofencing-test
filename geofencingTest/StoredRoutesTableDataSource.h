@@ -15,9 +15,11 @@
 #import "RouteCoordinate.h"
 
 @interface StoredRoutesTableDataSource : NSObject<UITableViewDataSource>
-@property RouteStorageManager *storedRoutes;
-@property StoredRoutesScreenTableCell *tableCell;
-@property NSArray *fetchResults;
+@property RouteStorageManager         * storedRoutes;
+@property StoredRoutesScreenTableCell * tableCell;
+@property NSArray                     * fetchResults;
+@property RouteData                   * routeData;
+@property RouteCoordinate             * routeCoordinate;
 
 
 - (void)getDataSet;

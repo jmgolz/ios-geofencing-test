@@ -10,9 +10,9 @@
 #import <MapKit/MapKit.h>
 
 @interface SelectedRouteDetailViewController : UIViewController
-@property (weak, nonatomic) IBOutlet MKMapView *routePathDisplayMap;
-@property (weak, nonatomic) IBOutlet UILabel *checkpointsAndDistanceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *routeAuthorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *routeNameLabel;
+@property (weak, nonatomic) IBOutlet MKMapView        *routePathDisplayMap;
+@property (weak, nonatomic) IBOutlet UILabel          *checkpointsAndDistanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel          *routeAuthorLabel;
+@property (weak, nonatomic) IBOutlet UILabel          *routeNameLabel;
 
 @end

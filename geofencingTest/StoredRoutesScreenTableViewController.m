@@ -28,16 +28,18 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%@",[[self.tableDataSource.fetchResults objectAtIndex:indexPath.row] debugDescription]);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     RouteData *routeData = [self.tableDataSource.fetchResults objectAtIndex:indexPath.row];
-    RouteCoordinate *routeDataCoordinates = [[RouteCoordinate alloc] initWithEntity:[NSEntityDescription entityForName:@"RouteDataCheckpoints" inManagedObjectContext:routeData.managedObjectContext] insertIntoManagedObjectContext:routeDataCoordinates.managedObjectContext];
+//    for (RouteData *routeItem in fetchRouteRequestResults) {
+        if([routeData valueForKey:@"checkpoints"]){
+            NSLog(@"%@", [[routeData valueForKey:@"checkpoints"] debugDescription]);
+            for (RouteCoordinate *coordinate in [routeData valueForKey:@"checkpoints"]) {
+                NSLog(@"Latitude: %f Longitude %f", [coordinate.latitude floatValue], [coordinate.longitude floatValue]);
+            }
+        }
+//    }
 
-    //NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    //NSError *error;
-    //NSLog(@"checkpoints? %@", [[[routeData entity] subentities] debugDescription]);
-    NSLog(@"checkpoints? %@", routeDataCoordinates.debugDescription);
     
 }
 

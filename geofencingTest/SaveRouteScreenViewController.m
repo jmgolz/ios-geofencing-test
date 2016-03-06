@@ -75,6 +75,7 @@
 
     routeCoordinateManagedObject.checkpointRadius = 0;
     routeCoordinateManagedObject.checkpointOrder  = 0;
+        NSLog(@"Storing object: %@", routeCoordinateManagedObject.debugDescription);
 
         [checkpointCoordsHolder addObject:routeCoordinateManagedObject];
 

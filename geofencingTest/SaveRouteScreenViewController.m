@@ -15,18 +15,18 @@
 @implementation SaveRouteScreenViewController
 
 -(void)viewWillAppear:(BOOL)animated{
-    self.routeStorageManager                      = [[RouteStorageManager alloc] init];
+    self.routeStorageManager          = [[RouteStorageManager alloc] init];
 
     //Get data if we have it...
-    NSError *dataRequestError                     = nil;
-    NSFetchRequest *fetchSavedRoute               = [NSFetchRequest fetchRequestWithEntityName:@"RouteData"];
-    NSArray *fetchRouteRequestResults             = [[self.routeStorageManager routeStorageDataContext] executeFetchRequest:fetchSavedRoute error:&dataRequestError];
+    NSError *dataRequestError         = nil;
+    NSFetchRequest *fetchSavedRoute   = [NSFetchRequest fetchRequestWithEntityName:@"RouteData"];
+    NSArray *fetchRouteRequestResults = [[self.routeStorageManager routeStorageDataContext] executeFetchRequest:fetchSavedRoute error:&dataRequestError];
 
     for (RouteData *routeItem in fetchRouteRequestResults) {
         if([routeItem valueForKey:@"checkpoints"]){
             NSLog(@"%@", [[routeItem valueForKey:@"checkpoints"] debugDescription]);
             for (RouteCoordinate *coordinate in [routeItem valueForKey:@"checkpoints"]) {
-                NSLog(@"Latitude: %f Longitude %f", [coordinate.latitude floatValue], [coordinate.longitude floatValue]);
+                NSLog(@"%@:, Latitude: %f Longitude %f",[coordinate checkpointName], [coordinate.latitude floatValue], [coordinate.longitude floatValue]);
             }
         }
     }
@@ -56,35 +56,26 @@
 - (IBAction)saveRoute:(id)sender {
 
     //Create managed object, attach context to it
-    RouteData *routeDataManagedObject             = [NSEntityDescription insertNewObjectForEntityForName:@"RouteData" inManagedObjectContext:self.routeStorageManager.routeStorageDataContext];
-    RouteCoordinate *routeCoordinateManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"RouteDataCheckpoints" inManagedObjectContext:self.routeStorageManager.routeStorageDataContext];
+    RouteData *routeDataManagedObject  = [NSEntityDescription insertNewObjectForEntityForName:@"RouteData" inManagedObjectContext:self.routeStorageManager.routeStorageDataContext];
+    routeDataManagedObject.routeAuthor = self.authorTextField.text;
+    routeDataManagedObject.routeName   = self.routeNameTextField.text;
 
-    routeDataManagedObject.routeAuthor            = self.authorTextField.text;
-    routeDataManagedObject.routeName              = self.routeNameTextField.text;
-
-    NSMutableArray *checkpointCoordsHolder        = [[NSMutableArray alloc] init];
-
+    NSMutableSet *routeCoordinatesSet  = [routeDataManagedObject mutableSetValueForKeyPath:@"checkpoints"];
     for (NSArray<id<MKAnnotation>> *annotation in self.annotationsForStorage) {
 
-    MKPointAnnotation *mapAnnotation              = (MKPointAnnotation*)annotation;
+        MKPointAnnotation *mapAnnotation              = (MKPointAnnotation*)annotation;
+        RouteCoordinate *routeCoordinateManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"RouteDataCheckpoints" inManagedObjectContext:self.routeStorageManager.routeStorageDataContext];
+        routeCoordinateManagedObject.checkpointName   = mapAnnotation.title;
+        routeCoordinateManagedObject.latitude         = [NSNumber numberWithDouble:mapAnnotation.coordinate.latitude];
+        routeCoordinateManagedObject.longitude        = [NSNumber numberWithDouble:mapAnnotation.coordinate.longitude];
 
-
-    routeCoordinateManagedObject.checkpointName   = mapAnnotation.title;
-    routeCoordinateManagedObject.latitude         = [NSNumber numberWithDouble:mapAnnotation.coordinate.latitude];
-    routeCoordinateManagedObject.longitude        = [NSNumber numberWithDouble:mapAnnotation.coordinate.longitude];
-
-    routeCoordinateManagedObject.checkpointRadius = 0;
-    routeCoordinateManagedObject.checkpointOrder  = 0;
-        NSLog(@"Storing object: %@", routeCoordinateManagedObject.debugDescription);
-
-        [checkpointCoordsHolder addObject:routeCoordinateManagedObject];
-
+        routeCoordinateManagedObject.checkpointRadius = 0;
+        routeCoordinateManagedObject.checkpointOrder  = 0;
+        [routeCoordinatesSet addObject:routeCoordinateManagedObject];
     }
+    [routeDataManagedObject setValue:routeCoordinatesSet forKeyPath:@"checkpoints"];
 
-    NSSet *checkpointCoordsCollection             = [NSSet setWithArray:checkpointCoordsHolder];
-    [routeDataManagedObject setValue:checkpointCoordsCollection forKey:@"checkpoints"];
-
-    NSError *routeSaveError                       = nil;
+    NSError *routeSaveError = nil;
     [[self.routeStorageManager routeStorageDataContext] insertObject:routeDataManagedObject];
     [[self.routeStorageManager routeStorageDataContext] save:&routeSaveError];
 
@@ -94,9 +85,9 @@
     } else {
         //Check the data got saved
         [self makeRouteSavedDialog:YES];
-    NSError *dataRequestError                     = nil;
-    NSFetchRequest *fetchSavedRoute               = [NSFetchRequest fetchRequestWithEntityName:@"RouteData"];
-    NSArray *fetchRouteRequestResults             = [[self.routeStorageManager routeStorageDataContext] executeFetchRequest:fetchSavedRoute error:&dataRequestError];
+    NSError *dataRequestError         = nil;
+    NSFetchRequest *fetchSavedRoute   = [NSFetchRequest fetchRequestWithEntityName:@"RouteData"];
+    NSArray *fetchRouteRequestResults = [[self.routeStorageManager routeStorageDataContext] executeFetchRequest:fetchSavedRoute error:&dataRequestError];
 
         if (!fetchRouteRequestResults) {
             NSLog(@"%@",dataRequestError.localizedDescription);
@@ -104,9 +95,6 @@
             NSLog(@"Got results: %@", fetchRouteRequestResults.debugDescription);
         }
     }
-
-
-
 }
 
 - (IBAction)cancelRouteSave:(id)sender {
@@ -118,13 +106,13 @@
     NSString *body;
 
     if(didSaveRecord == YES){
-    title                                         = @"Success!";
-    body                                          = @"Successfully saved route.";
+        title = @"Success!";
+        body  = @"Successfully saved route.";
     } else {
-    title                                         = @"Error!";
-    body                                          = @"There was a problem saving your route.";
+        title = @"Error!";
+        body  = @"There was a problem saving your route.";
     }
-    UIAlertController *dialog                     = [UIAlertController alertControllerWithTitle:title message:body preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *dialog = [UIAlertController alertControllerWithTitle:title message:body preferredStyle:UIAlertControllerStyleAlert];
     [dialog addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:dialog animated:YES completion:nil];
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F1021" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1509" minimumToolsVersion="Automatic">
     <entity name="RouteData" representedClassName="RouteData" syncable="YES">
         <attribute name="routeAuthor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="routeName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeCreated" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="checkpoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RouteDataCheckpoints" syncable="YES"/>
+        <relationship name="checkpoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RouteDataCheckpoints" inverseName="route" inverseEntity="RouteDataCheckpoints" syncable="YES"/>
     </entity>
     <entity name="RouteDataCheckpoints" syncable="YES">
         <attribute name="checkpointName" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,9 +12,10 @@
         <attribute name="checkpointRadius" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="route" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RouteData" inverseName="checkpoints" inverseEntity="RouteData" syncable="YES"/>
     </entity>
     <elements>
-        <element name="RouteData" positionX="-63" positionY="9" width="128" height="103"/>
-        <element name="RouteDataCheckpoints" positionX="153" positionY="90" width="128" height="43"/>
+        <element name="RouteData" positionX="-63" positionY="9" width="128" height="105"/>
+        <element name="RouteDataCheckpoints" positionX="153" positionY="90" width="128" height="135"/>
     </elements>
 </model>

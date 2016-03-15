@@ -26,7 +26,7 @@
         if([self.routeData valueForKey:@"checkpoints"]){
             NSLog(@"%@", [[self.routeData valueForKey:@"checkpoints"] debugDescription]);
             for (RouteCoordinate *coordinate in [self.routeData valueForKey:@"checkpoints"]) {
-                NSLog(@"Latitude: %f Longitude %f", [coordinate.latitude floatValue], [coordinate.longitude floatValue]);
+                NSLog(@"%@ Latitude: %f Longitude %f",[coordinate checkpointName], [coordinate.latitude floatValue], [coordinate.longitude floatValue]);
                 MKPointAnnotation *checkpoint = [[MKPointAnnotation alloc] init];
                 checkpoint.coordinate = CLLocationCoordinate2DMake([coordinate.latitude doubleValue], [coordinate.longitude doubleValue]);
                 [self.routePathDisplayMap addAnnotation:checkpoint];
@@ -38,7 +38,7 @@
     MKCoordinateSpan   span;
     
     span.latitudeDelta = 0.01;
-    span.longitudeDelta = 0.1;
+    span.longitudeDelta = 0.01;
     region.center = [[[self.routePathDisplayMap annotations] objectAtIndex:0] coordinate];
     region.span = span;
     [self.routePathDisplayMap setRegion:region animated:YES];

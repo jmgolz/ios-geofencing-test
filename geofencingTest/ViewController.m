@@ -19,10 +19,10 @@
     if (self.locationManager.monitoredRegions) {
         if (self.mapView.annotations.count== 0) {
             for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
-                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-                
-                annotation.coordinate = region.center;
-                annotation.title = region.identifier;
+    MKPointAnnotation *annotation                            = [[MKPointAnnotation alloc] init];
+
+    annotation.coordinate                                    = region.center;
+    annotation.title                                         = region.identifier;
                 [self.mapView addAnnotation:annotation];
             }
         }
@@ -31,31 +31,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [UIApplication sharedApplication].idleTimerDisabled = YES;
-    
-    //Map init
-    self.mapViewLocationManagerDelegate = [[MapViewLocationUpdatesDelegate alloc] init];
-    self.mapView.delegate = self.mapViewLocationManagerDelegate;
-    self.mapView.showsUserLocation = YES;
+    [UIApplication sharedApplication].idleTimerDisabled      = YES;
 
-    MKCoordinateRegion initialCoordinate = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 10, 10);
-    
+    //Map init
+    self.mapViewLocationManagerDelegate                      = [[MapViewLocationUpdatesDelegate alloc] init];
+    self.mapView.delegate                                    = self.mapViewLocationManagerDelegate;
+    self.mapView.showsUserLocation                           = YES;
+
+    MKCoordinateRegion initialCoordinate                     = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 10, 10);
+
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
     [self.mapView setRegion:initialCoordinate animated:YES];
-    
+
     //Begin location monitoring
-    self.locationManager = [[CLLocationManager alloc]init];
-    self.locationManagerDelegate = [[LocationManagerDelegate alloc] init];
-    self.locationManager.delegate = self.locationManagerDelegate;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-    
-    
+    self.locationManager                                     = [[CLLocationManager alloc]init];
+    self.locationManagerDelegate                             = [[LocationManagerDelegate alloc] init];
+    self.locationManager.delegate                            = self.locationManagerDelegate;
+    self.locationManager.desiredAccuracy                     = kCLLocationAccuracyNearestTenMeters;
+
+
     //Get user permission to use location services, then start monitoring
     [self handleLocationServicesAuthorizationCheck];
 
     //Allocate long-press gesture recognizer
-    self.mapLongPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] init];
-    self.mapLongPressGestureRecognizer.delegate = self;
+    self.mapLongPressGestureRecognizer                       = [[UILongPressGestureRecognizer alloc] init];
+    self.mapLongPressGestureRecognizer.delegate              = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,7 +66,7 @@
 
 - (IBAction)clearAllCheckpoints:(id)sender {
     [self.mapView removeAnnotations:self.mapView.annotations];
-    
+
     for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
         [self.locationManager stopMonitoringForRegion:region];
     }
@@ -85,15 +85,25 @@
         case kCLAuthorizationStatusAuthorizedWhenInUse:
             [self.locationManager requestAlwaysAuthorization];
             return;
-            
+
         case kCLAuthorizationStatusAuthorizedAlways:
 
             return;
-            
+
         case kCLAuthorizationStatusDenied:
         case kCLAuthorizationStatusRestricted:
             //[self showSorryAlert];
             return;
     }
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"segueToSaveRoute"]){
+    SaveRouteScreenViewController *destinationViewController = [segue destinationViewController];
+    destinationViewController.annotationsForStorage          = [self.mapView annotations];
+    }
+}
+
 @end

@@ -121,17 +121,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E503FA841CA43C8200CD4A2B /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				E503FA851CA43CAD00CD4A2B /* m */,
+				E5AD6FC41C68F161007C7F76 /* LocationManagerDelegate.h */,
+				E5AD700D1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.h */,
+				E5AD6F8F1C68F07D007C7F76 /* AppDelegate.h */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		E503FA851CA43CAD00CD4A2B /* m */ = {
+			isa = PBXGroup;
+			children = (
+				E5AD6FC51C68F161007C7F76 /* LocationManagerDelegate.m */,
+				E5AD700E1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.m */,
+				E5AD6F901C68F07D007C7F76 /* AppDelegate.m */,
+			);
+			name = m;
+			sourceTree = "<group>";
+		};
+		E503FA861CA43CE900CD4A2B /* m */ = {
+			isa = PBXGroup;
+			children = (
+				E533B47B1C777B200068B359 /* RouteData.m */,
+				E533B47E1C778E5D0068B359 /* RouteStorageManager.m */,
+				84B9B0841C78D7B000C73246 /* RouteCoordinate.m */,
+				84B9B08A1C79502100C73246 /* StoredRoutesTableDataSource.m */,
+			);
+			name = m;
+			sourceTree = "<group>";
+		};
+		E503FA871CA43CFE00CD4A2B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E503FA881CA43D0D00CD4A2B /* m */,
+				E5AD6F921C68F07D007C7F76 /* ViewController.h */,
+				E533B4801C77AA4C0068B359 /* SaveRouteScreenViewController.h */,
+				84B9B0861C794FB600C73246 /* StoredRoutesScreenTableViewController.h */,
+				E53709091C7E44360028DDC2 /* SelectedRouteDetailViewController.h */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		E503FA881CA43D0D00CD4A2B /* m */ = {
+			isa = PBXGroup;
+			children = (
+				E5AD6F931C68F07D007C7F76 /* ViewController.m */,
+				E533B4811C77AA4C0068B359 /* SaveRouteScreenViewController.m */,
+				84B9B0871C794FB600C73246 /* StoredRoutesScreenTableViewController.m */,
+				E537090A1C7E44360028DDC2 /* SelectedRouteDetailViewController.m */,
+			);
+			name = m;
+			sourceTree = "<group>";
+		};
 		E533B4791C777ADF0068B359 /* Data Storage */ = {
 			isa = PBXGroup;
 			children = (
+				E503FA861CA43CE900CD4A2B /* m */,
 				E533B47A1C777B200068B359 /* RouteData.h */,
-				E533B47B1C777B200068B359 /* RouteData.m */,
 				E533B47D1C778E5D0068B359 /* RouteStorageManager.h */,
-				E533B47E1C778E5D0068B359 /* RouteStorageManager.m */,
 				84B9B0831C78D7B000C73246 /* RouteCoordinate.h */,
-				84B9B0841C78D7B000C73246 /* RouteCoordinate.m */,
 				84B9B0891C79502100C73246 /* StoredRoutesTableDataSource.h */,
-				84B9B08A1C79502100C73246 /* StoredRoutesTableDataSource.m */,
 			);
 			name = "Data Storage";
 			sourceTree = "<group>";
@@ -163,27 +215,15 @@
 		E5AD6F8B1C68F07D007C7F76 /* geofencingTest */ = {
 			isa = PBXGroup;
 			children = (
+				E503FA871CA43CFE00CD4A2B /* Screens */,
+				E503FA841CA43C8200CD4A2B /* Delegates */,
 				E533B4791C777ADF0068B359 /* Data Storage */,
-				E5AD6F8F1C68F07D007C7F76 /* AppDelegate.h */,
-				E5AD6F901C68F07D007C7F76 /* AppDelegate.m */,
-				E5AD6F921C68F07D007C7F76 /* ViewController.h */,
-				E5AD6F931C68F07D007C7F76 /* ViewController.m */,
 				E5AD6F951C68F07D007C7F76 /* Main.storyboard */,
 				E5AD6F9B1C68F07D007C7F76 /* Assets.xcassets */,
 				E5AD6F9D1C68F07D007C7F76 /* LaunchScreen.storyboard */,
 				E5AD6FA01C68F07D007C7F76 /* Info.plist */,
 				E5AD6F981C68F07D007C7F76 /* geofencingTest.xcdatamodeld */,
 				E5AD6F8C1C68F07D007C7F76 /* Supporting Files */,
-				E5AD6FC41C68F161007C7F76 /* LocationManagerDelegate.h */,
-				E5AD6FC51C68F161007C7F76 /* LocationManagerDelegate.m */,
-				E5AD700D1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.h */,
-				E5AD700E1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.m */,
-				E533B4801C77AA4C0068B359 /* SaveRouteScreenViewController.h */,
-				E533B4811C77AA4C0068B359 /* SaveRouteScreenViewController.m */,
-				84B9B0861C794FB600C73246 /* StoredRoutesScreenTableViewController.h */,
-				84B9B0871C794FB600C73246 /* StoredRoutesScreenTableViewController.m */,
-				E53709091C7E44360028DDC2 /* SelectedRouteDetailViewController.h */,
-				E537090A1C7E44360028DDC2 /* SelectedRouteDetailViewController.m */,
 			);
 			path = geofencingTest;
 			sourceTree = "<group>";

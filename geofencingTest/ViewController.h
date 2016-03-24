@@ -28,5 +28,7 @@
 
 - (void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture;
 - (void)handleLocationServicesAuthorizationCheck;
+
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue;
 @end
 

@@ -85,9 +85,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" translucent="NO" id="uHs-wn-rQI">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem id="Ujo-Sw-5Ch">
+                                    <barButtonItem key="leftBarButtonItem" title="Back" id="5TD-De-QrJ">
+                                        <connections>
+                                            <action selector="returnToMap:" destination="7WX-SU-QO2" id="P1m-Nj-W6A"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <connections>
+                                        <outlet property="backBarButtonItem" destination="5TD-De-QrJ" id="wbv-iI-D7p"/>
+                                    </connections>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="routeInfoCell" rowHeight="125" id="Ot8-DK-qWp" customClass="StoredRoutesScreenTableCell">
-                                <rect key="frame" x="0.0" y="28" width="600" height="125"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ot8-DK-qWp" id="ORy-Ip-YO2">
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="124.5"/>
@@ -162,6 +178,7 @@
                             <outlet property="delegate" destination="7WX-SU-QO2" id="8w8-rH-fPq"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <connections>
                         <outlet property="tableView" destination="PMG-rw-bf1" id="Mbh-wa-hS9"/>
                         <segue destination="eWm-EJ-s6q" kind="show" identifier="segueToDetailVew" id="7V6-g1-dE4"/>
@@ -183,7 +200,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ymb-T4-NfP">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ymb-T4-NfP">
                                 <rect key="frame" x="20" y="20" width="560" height="431"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ymb-T4-NfP" secondAttribute="height" multiplier="560:431" id="0xx-dK-OzJ"/>
@@ -202,25 +219,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IZ-5b-jct">
-                                <rect key="frame" x="260" y="482" width="320" height="21"/>
+                                <rect key="frame" x="260" y="482" width="320" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECO-qi-AGI">
-                                <rect key="frame" x="20" y="482.5" width="197" height="20.5"/>
+                                <rect key="frame" x="20" y="482" width="197" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlS-Sg-7nR">
-                                <rect key="frame" x="20" y="516" width="99" height="21"/>
+                                <rect key="frame" x="20" y="516" width="99" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHW-I3-WSl">
-                                <rect key="frame" x="20" y="545" width="560" height="21"/>
+                                <rect key="frame" x="20" y="544" width="560" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

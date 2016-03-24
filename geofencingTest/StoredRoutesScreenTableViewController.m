@@ -48,4 +48,7 @@
         [(SelectedRouteDetailViewController*)[segue destinationViewController] setRouteData:self.routeData];
     }
 }
+- (IBAction)returnToMap:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

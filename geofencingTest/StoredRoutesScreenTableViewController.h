@@ -17,4 +17,8 @@
 @property StoredRoutesTableDataSource * tableDataSource;
 @property NSArray                     * routeDetailsForMapScreen;
 @property RouteData                   * routeData;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
+
+- (IBAction)returnToMap:(id)sender;
+
 @end

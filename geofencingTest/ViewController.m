@@ -16,6 +16,8 @@
 @implementation ViewController
 
 -(void)viewWillAppear:(BOOL)animated{
+    self.selectedRouteDetailViewController = [[SelectedRouteDetailViewController alloc] init];
+    
     if (self.locationManager.monitoredRegions) {
         if (self.mapView.annotations.count== 0) {
             for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
@@ -107,7 +109,9 @@
 }
 
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+    self.selectedRouteDetailViewController = [segue sourceViewController];
     
+    NSLog(@"%@", [self.selectedRouteDetailViewController routeData]);
 }
 
 @end

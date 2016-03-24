@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "RouteData.h"
 #import "RouteCoordinate.h"
-#import "ViewController.h"
+
 
 @interface SelectedRouteDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet MKMapView * routePathDisplayMap;

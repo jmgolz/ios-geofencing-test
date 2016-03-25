@@ -17,22 +17,39 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     if([self.selectedRouteDetailViewController routeData] ){
-        NSLog(@"STUFFFFFF\n%@", [[self.selectedRouteDetailViewController routeData] debugDescription] );
+        //NSLog(@"STUFFFFFF\n%@", [[self.selectedRouteDetailViewController routeData] debugDescription] );
+        if (self.locationManager.monitoredRegions) {
+            NSArray *routeAnnotations = [[[NSArray arrayWithObject:[self.selectedRouteDetailViewController routeData]] valueForKey:@"checkpoints"] objectAtIndex:0];
+            [self clearAllCheckpoints:nil];
+            
+            for (RouteCoordinate *coord in routeAnnotations) {
+                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+                CLLocationCoordinate2D location = CLLocationCoordinate2DMake([coord.latitude doubleValue], [coord.longitude doubleValue]);
+                
+                annotation.coordinate = location;
+                annotation.title      = coord.checkpointName;
+                [self.mapView addAnnotation:annotation];                
+            }
+            
+//            NSLog(@"STUFFFFFFSTUFFFFFF%@",[[routeAnnotations objectAtIndex:1] valueForKey:@"checkpointName"]);
+            
+        }
+        
     } else {
-        self.selectedRouteDetailViewController = [[SelectedRouteDetailViewController alloc] init];
-    }
-    
-    if (self.locationManager.monitoredRegions) {
-        if (self.mapView.annotations.count== 0) {
-            for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
-    MKPointAnnotation *annotation                            = [[MKPointAnnotation alloc] init];
-
-    annotation.coordinate                                    = region.center;
-    annotation.title                                         = region.identifier;
-                [self.mapView addAnnotation:annotation];
+        if (self.locationManager.monitoredRegions) {
+            if (self.mapView.annotations.count== 0) {
+                for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
+                    MKPointAnnotation *annotation                            = [[MKPointAnnotation alloc] init];
+                    
+                    annotation.coordinate                                    = region.center;
+                    annotation.title                                         = region.identifier;
+                    [self.mapView addAnnotation:annotation];
+                }
             }
         }
     }
+    
+
 }
 
 - (void)viewDidLoad {

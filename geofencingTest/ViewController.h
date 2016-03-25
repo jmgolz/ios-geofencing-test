@@ -13,6 +13,10 @@
 #import "LocationManagerDelegate.h"
 #import "MapViewLocationUpdatesDelegate.h"
 #import "SaveRouteScreenViewController.h"
+#import "SelectedRouteDetailViewController.h"
+#import "RouteData.h"
+#import "RouteCoordinate.h"
+
 
 @interface ViewController : UIViewController<UIGestureRecognizerDelegate>
 
@@ -24,9 +28,13 @@
 
 @property (weak, nonatomic  ) IBOutlet                 MKMapView                      *mapView;
 @property (weak, nonatomic  ) IBOutlet                 UILabel                        *scansLabel;
+@property SelectedRouteDetailViewController *selectedRouteDetailViewController;
+
 - (IBAction)clearAllCheckpoints:(id)sender;
 
 - (void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture;
 - (void)handleLocationServicesAuthorizationCheck;
+
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue;
 @end
 

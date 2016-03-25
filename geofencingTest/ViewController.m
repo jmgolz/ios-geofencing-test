@@ -16,19 +16,42 @@
 @implementation ViewController
 
 -(void)viewWillAppear:(BOOL)animated{
-    self.selectedRouteDetailViewController = [[SelectedRouteDetailViewController alloc] init];
-    
-    if (self.locationManager.monitoredRegions) {
-        if (self.mapView.annotations.count== 0) {
+    if([self.selectedRouteDetailViewController routeData] ){
+        if (self.locationManager.monitoredRegions) {
+            //Clear out all monitored regions
             for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
-    MKPointAnnotation *annotation                            = [[MKPointAnnotation alloc] init];
-
-    annotation.coordinate                                    = region.center;
-    annotation.title                                         = region.identifier;
+                [self.locationManager stopMonitoringForRegion:region];
+            }
+            
+            NSArray *routeAnnotations = [[[NSArray arrayWithObject:[self.selectedRouteDetailViewController routeData]] valueForKey:@"checkpoints"] objectAtIndex:0];
+            [self clearAllCheckpoints:nil];
+            
+            for (RouteCoordinate *coord in routeAnnotations) {
+                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+                CLLocationCoordinate2D location = CLLocationCoordinate2DMake([coord.latitude doubleValue], [coord.longitude doubleValue]);
+                CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:location radius:coord.checkpointRadius identifier:coord.checkpointName];
+                
+                annotation.coordinate = location;
+                annotation.title      = coord.checkpointName;
                 [self.mapView addAnnotation:annotation];
+                [self.locationManager startMonitoringForRegion:region];
+            }
+        }
+    } else {
+        if (self.locationManager.monitoredRegions) {
+            if (self.mapView.annotations.count== 0) {
+                for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
+                    MKPointAnnotation *annotation                            = [[MKPointAnnotation alloc] init];
+                    
+                    annotation.coordinate                                    = region.center;
+                    annotation.title                                         = region.identifier;
+                    [self.mapView addAnnotation:annotation];
+                }
             }
         }
     }
+    
+
 }
 
 - (void)viewDidLoad {
@@ -112,16 +135,16 @@
     self.selectedRouteDetailViewController = [segue sourceViewController];
     
     if([self.selectedRouteDetailViewController routeData] ){
-        NSArray *routeData = [NSArray arrayWithObject:[self.selectedRouteDetailViewController routeData]];
-
-        for (RouteData *route in routeData) {
-            NSLog(@"%@", [route debugDescription]);
-            if ([[route valueForKey:@"checkpoints"] count] > 0) {
-                for (RouteCoordinate *coord in [route valueForKey:@"checkpoints"]) {
-                    NSLog(@"%@", [coord debugDescription]);
-                }
-            }
-        }
+//        NSArray *routeData = [NSArray arrayWithObject:[self.selectedRouteDetailViewController routeData]];
+//
+//        for (RouteData *route in routeData) {
+//            NSLog(@"%@", [route debugDescription]);
+//            if ([[route valueForKey:@"checkpoints"] count] > 0) {
+//                for (RouteCoordinate *coord in [route valueForKey:@"checkpoints"]) {
+//                    NSLog(@"%@", [coord debugDescription]);
+//                }
+//            }
+//        }
     }
 }
 

@@ -111,7 +111,16 @@
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
     self.selectedRouteDetailViewController = [segue sourceViewController];
     
-    NSLog(@"%@", [self.selectedRouteDetailViewController routeData]);
+    NSArray *routeData = [NSArray arrayWithObject:[self.selectedRouteDetailViewController routeData]];
+
+    for (RouteData *route in routeData) {
+        NSLog(@"%@", [route debugDescription]);
+        if ([[route valueForKey:@"checkpoints"] count] > 0) {
+            for (RouteCoordinate *coord in [route valueForKey:@"checkpoints"]) {
+                NSLog(@"%@", [coord debugDescription]);
+            }
+        }
+    }
 }
 
 @end

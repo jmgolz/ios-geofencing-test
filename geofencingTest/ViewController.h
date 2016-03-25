@@ -14,6 +14,8 @@
 #import "MapViewLocationUpdatesDelegate.h"
 #import "SaveRouteScreenViewController.h"
 #import "SelectedRouteDetailViewController.h"
+#import "RouteData.h"
+#import "RouteCoordinate.h"
 
 
 @interface ViewController : UIViewController<UIGestureRecognizerDelegate>

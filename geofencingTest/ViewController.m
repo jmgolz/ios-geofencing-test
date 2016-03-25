@@ -16,7 +16,11 @@
 @implementation ViewController
 
 -(void)viewWillAppear:(BOOL)animated{
-    self.selectedRouteDetailViewController = [[SelectedRouteDetailViewController alloc] init];
+    if([self.selectedRouteDetailViewController routeData] ){
+        NSLog(@"STUFFFFFF\n%@", [[self.selectedRouteDetailViewController routeData] debugDescription] );
+    } else {
+        self.selectedRouteDetailViewController = [[SelectedRouteDetailViewController alloc] init];
+    }
     
     if (self.locationManager.monitoredRegions) {
         if (self.mapView.annotations.count== 0) {
@@ -112,16 +116,16 @@
     self.selectedRouteDetailViewController = [segue sourceViewController];
     
     if([self.selectedRouteDetailViewController routeData] ){
-        NSArray *routeData = [NSArray arrayWithObject:[self.selectedRouteDetailViewController routeData]];
-
-        for (RouteData *route in routeData) {
-            NSLog(@"%@", [route debugDescription]);
-            if ([[route valueForKey:@"checkpoints"] count] > 0) {
-                for (RouteCoordinate *coord in [route valueForKey:@"checkpoints"]) {
-                    NSLog(@"%@", [coord debugDescription]);
-                }
-            }
-        }
+//        NSArray *routeData = [NSArray arrayWithObject:[self.selectedRouteDetailViewController routeData]];
+//
+//        for (RouteData *route in routeData) {
+//            NSLog(@"%@", [route debugDescription]);
+//            if ([[route valueForKey:@"checkpoints"] count] > 0) {
+//                for (RouteCoordinate *coord in [route valueForKey:@"checkpoints"]) {
+//                    NSLog(@"%@", [coord debugDescription]);
+//                }
+//            }
+//        }
     }
 }
 

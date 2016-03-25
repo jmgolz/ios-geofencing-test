@@ -17,24 +17,26 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     if([self.selectedRouteDetailViewController routeData] ){
-        //NSLog(@"STUFFFFFF\n%@", [[self.selectedRouteDetailViewController routeData] debugDescription] );
         if (self.locationManager.monitoredRegions) {
+            //Clear out all monitored regions
+            for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
+                [self.locationManager stopMonitoringForRegion:region];
+            }
+            
             NSArray *routeAnnotations = [[[NSArray arrayWithObject:[self.selectedRouteDetailViewController routeData]] valueForKey:@"checkpoints"] objectAtIndex:0];
             [self clearAllCheckpoints:nil];
             
             for (RouteCoordinate *coord in routeAnnotations) {
                 MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
                 CLLocationCoordinate2D location = CLLocationCoordinate2DMake([coord.latitude doubleValue], [coord.longitude doubleValue]);
+                CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:location radius:coord.checkpointRadius identifier:coord.checkpointName];
                 
                 annotation.coordinate = location;
                 annotation.title      = coord.checkpointName;
-                [self.mapView addAnnotation:annotation];                
+                [self.mapView addAnnotation:annotation];
+                [self.locationManager startMonitoringForRegion:region];
             }
-            
-//            NSLog(@"STUFFFFFFSTUFFFFFF%@",[[routeAnnotations objectAtIndex:1] valueForKey:@"checkpointName"]);
-            
         }
-        
     } else {
         if (self.locationManager.monitoredRegions) {
             if (self.mapView.annotations.count== 0) {

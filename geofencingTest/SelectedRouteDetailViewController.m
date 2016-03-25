@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.navigationController setNavigationBarHidden:YES];
+    
     if(![self.routeData isEqual:nil]){
         self.routeAuthorLabel.text = self.routeData.routeAuthor;
         self.routeNameLabel.text   = self.routeData.routeName;

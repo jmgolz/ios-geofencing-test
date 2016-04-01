@@ -78,6 +78,9 @@
     [UIApplication sharedApplication].idleTimerDisabled      = YES;
 
     //Map init
+    [SharedLocationManager sharedInstance]; 
+    
+
     self.mapViewLocationManagerDelegate                      = [[MapViewLocationUpdatesDelegate alloc] init];
     self.mapView.delegate                                    = self.mapViewLocationManagerDelegate;
     self.mapView.showsUserLocation                           = YES;
@@ -101,8 +104,6 @@
     self.mapLongPressGestureRecognizer                       = [[UILongPressGestureRecognizer alloc] init];
     self.mapLongPressGestureRecognizer.delegate              = self;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadMapCheckpoints) name:@"userCancelledSave" object:nil];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,6 +124,7 @@
 }
 
 - (void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture{
+    
     if(tapGesture.state == UIGestureRecognizerStateBegan){
         [[self mapViewLocationManagerDelegate] updateMap:[tapGesture locationInView:tapGesture.view] locationManagerObject:[SharedLocationManager sharedInstance].locationManager mapViewToUpdate:self.mapView];
     }
@@ -151,28 +153,26 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if([segue.identifier isEqualToString:@"segueToSaveRoute"]){
-    SaveRouteScreenViewController *destinationViewController = [segue destinationViewController];
-    destinationViewController.annotationsForStorage          = [self.mapView annotations];
+        SaveRouteScreenViewController *destinationViewController = [segue destinationViewController];
+        destinationViewController.annotationsForStorage          = [self.mapView annotations];
     }
+    
 }
 
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
-    self.selectedRouteDetailViewController = [segue sourceViewController];
-    [self loadNewRoute:[self.selectedRouteDetailViewController routeData]];
-    
-    
-    if([self.selectedRouteDetailViewController routeData] ){
-//        NSArray *routeData = [NSArray arrayWithObject:[self.selectedRouteDetailViewController routeData]];
-//
-//        for (RouteData *route in routeData) {
-//            NSLog(@"%@", [route debugDescription]);
-//            if ([[route valueForKey:@"checkpoints"] count] > 0) {
-//                for (RouteCoordinate *coord in [route valueForKey:@"checkpoints"]) {
-//                    NSLog(@"%@", [coord debugDescription]);
-//                }
-//            }
-//        }
+    if (![[[segue sourceViewController] restorationIdentifier] isEqualToString:@"routesList"]){
+        self.selectedRouteDetailViewController = [segue sourceViewController];
+        [self loadNewRoute:[self.selectedRouteDetailViewController routeData]];
     }
+    
+    NSLog(@"Source controller: %@", [[segue sourceViewController] debugDescription]);
+}
+
+- (IBAction)saveRoute:(id)sender {
+    if (!self.saveRouteScreenController) {
+        self.saveRouteScreenController = [self.storyboard instantiateViewControllerWithIdentifier:@"saveRoute"];
+    }
+    [self presentViewController:self.saveRouteScreenController animated:YES completion:nil];
 }
 
 -(void)loadNewRoute:(RouteData *)routeData{
@@ -194,20 +194,4 @@
         [[SharedLocationManager sharedInstance] addRegionToMonitor:region];
     }
 }
-
--(void)reloadMapCheckpoints{
-    [self.mapView removeAnnotations:self.mapView.annotations];
-    for (CLCircularRegion *region in [[SharedLocationManager sharedInstance] getMonitoredRegions]) {
-        MKPointAnnotation *annotation                            = [[MKPointAnnotation alloc] init];
-        
-        annotation.coordinate                                    = region.center;
-        annotation.title                                         = region.identifier;
-        
-        
-        [self.mapView addAnnotation:annotation];
-        
-    }
-    NSLog(@"%@", [[self.mapView annotations] debugDescription]);
-}
-
 @end

@@ -44,6 +44,7 @@
                                 <rect key="frame" x="482" y="546" width="98" height="30"/>
                                 <state key="normal" title="Save Route"/>
                                 <connections>
+                                    <action selector="saveRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aAd-d5-vea"/>
                                     <segue destination="Agi-Dp-OdI" kind="presentation" identifier="segueToSaveRoute" id="cmm-El-HjI"/>
                                 </connections>
                             </button>
@@ -80,7 +81,7 @@
         <!--Stored Routes-->
         <scene sceneID="Q2g-AV-iL2">
             <objects>
-                <tableViewController title="Stored Routes" id="7WX-SU-QO2" customClass="StoredRoutesScreenTableViewController" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="routesList" storyboardIdentifier="routesList" title="Stored Routes" id="7WX-SU-QO2" customClass="StoredRoutesScreenTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" id="PMG-rw-bf1">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -290,7 +291,7 @@
         <!--Save Route Screen-->
         <scene sceneID="bfg-XM-42F">
             <objects>
-                <viewController id="Agi-Dp-OdI" userLabel="Save Route Screen" customClass="SaveRouteScreenViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="saveRoute" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Agi-Dp-OdI" userLabel="Save Route Screen" customClass="SaveRouteScreenViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xCF-cj-xQ9"/>
                         <viewControllerLayoutGuide type="bottom" id="HhY-Se-2cp"/>
@@ -341,7 +342,6 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelRouteSave:" destination="Agi-Dp-OdI" eventType="touchUpInside" id="f8a-A9-0G8"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="SegueToMapScreen" id="5Ja-p1-6N7"/>
                                 </connections>
                             </button>
                         </subviews>

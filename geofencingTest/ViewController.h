@@ -30,6 +30,7 @@
 @property (strong, nonatomic  ) IBOutlet                 MKMapView                      *mapView;
 @property (weak, nonatomic  ) IBOutlet                 UILabel                        *scansLabel;
 @property SelectedRouteDetailViewController *selectedRouteDetailViewController;
+@property (strong, nonatomic) SaveRouteScreenViewController *saveRouteScreenController;
 
 - (IBAction)clearAllCheckpoints:(id)sender;
 
@@ -37,7 +38,8 @@
 - (void)handleLocationServicesAuthorizationCheck;
 
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue;
+-(IBAction)saveRoute:(id)sender;
+
 -(void)loadNewRoute:(RouteData *)routeData;
--(void)reloadMapCheckpoints;
 @end
 

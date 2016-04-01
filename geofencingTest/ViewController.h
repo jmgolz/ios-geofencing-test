@@ -32,14 +32,10 @@
 @property SelectedRouteDetailViewController *selectedRouteDetailViewController;
 @property (strong, nonatomic) SaveRouteScreenViewController *saveRouteScreenController;
 
-- (IBAction)clearAllCheckpoints:(id)sender;
-
-- (void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture;
-- (void)handleLocationServicesAuthorizationCheck;
-
+-(IBAction)clearAllCheckpoints:(id)sender;
+-(void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture;
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue;
 -(IBAction)saveRoute:(id)sender;
-
 -(void)loadNewRoute:(RouteData *)routeData;
 @end
 

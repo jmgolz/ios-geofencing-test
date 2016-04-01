@@ -15,70 +15,12 @@
 
 @implementation ViewController
 
-
--(void)viewWillAppear:(BOOL)animated{
-    //On will appear:
-    
-    //If user merely left screen -
-        //then reload existing map points
-        //stop region monitoring? (singleton)
-    
-    //If user loads new map
-        //clear map points
-        //remove all monitored regions (from shared location manager)
-        //add new map points
-        //add new map points to monitored regions (add to shared location manager)
-
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadNewRoute:) name:@"userLoadedNewRoute" object:nil];
-    
-    
-    
-//    if([self.selectedRouteDetailViewController routeData] ){
-//        if (self.locationManager.monitoredRegions) {
-//            //Clear out all monitored regions
-//            for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
-//                [self.locationManager stopMonitoringForRegion:region];
-//            }
-//            
-//            NSArray *routeAnnotations = [[[NSArray arrayWithObject:[self.selectedRouteDetailViewController routeData]] valueForKey:@"checkpoints"] objectAtIndex:0];
-//            [self clearAllCheckpoints:nil];
-//            
-//            for (RouteCoordinate *coord in routeAnnotations) {
-//                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-//                CLLocationCoordinate2D location = CLLocationCoordinate2DMake([coord.latitude doubleValue], [coord.longitude doubleValue]);
-//                CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:location radius:coord.checkpointRadius identifier:coord.checkpointName];
-//                
-//                annotation.coordinate = location;
-//                annotation.title      = coord.checkpointName;
-//                [self.mapView addAnnotation:annotation];
-//                [self.locationManager startMonitoringForRegion:region];
-//            }
-//        }
-//    } else {
-
-//    if (self.locationManager.monitoredRegions) {
-//            if (self.mapView.annotations.count== 0) {
-//                for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
-//                    MKPointAnnotation *annotation                            = [[MKPointAnnotation alloc] init];
-//                    
-//                    annotation.coordinate                                    = region.center;
-//                    annotation.title                                         = region.identifier;
-//                    [self.mapView addAnnotation:annotation];
-//                }
-//            }
-//        }
-    
-    //}
-    
-
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [UIApplication sharedApplication].idleTimerDisabled      = YES;
 
     //Map init
-    [SharedLocationManager sharedInstance]; 
+    [SharedLocationManager sharedInstance];
     
 
     self.mapViewLocationManagerDelegate                      = [[MapViewLocationUpdatesDelegate alloc] init];
@@ -90,15 +32,6 @@
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
     [self.mapView setRegion:initialCoordinate animated:YES];
 
-    //Begin location monitoring
-//    self.locationManager                                     = [[CLLocationManager alloc]init];
-//    self.locationManagerDelegate                             = [[LocationManagerDelegate alloc] init];
-//    self.locationManager.delegate                            = self.locationManagerDelegate;
-//    self.locationManager.desiredAccuracy                     = kCLLocationAccuracyNearestTenMeters;
-
-
-    //Get user permission to use location services, then start monitoring
-//    [self handleLocationServicesAuthorizationCheck];
 
     //Allocate long-press gesture recognizer
     self.mapLongPressGestureRecognizer                       = [[UILongPressGestureRecognizer alloc] init];
@@ -115,37 +48,12 @@
 - (IBAction)clearAllCheckpoints:(id)sender {
     [self.mapView removeAnnotations:self.mapView.annotations];
     [[SharedLocationManager sharedInstance] clearAllMonitoredRegions];
-    
-//    for (CLCircularRegion *region in self.locationManager.monitoredRegions) {
-//        [self.locationManager stopMonitoringForRegion:region];
-//    }
-    
-    
 }
 
 - (void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture{
     
     if(tapGesture.state == UIGestureRecognizerStateBegan){
         [[self mapViewLocationManagerDelegate] updateMap:[tapGesture locationInView:tapGesture.view] locationManagerObject:[SharedLocationManager sharedInstance].locationManager mapViewToUpdate:self.mapView];
-    }
-}
-
-
-- (void)handleLocationServicesAuthorizationCheck{
-    switch ([CLLocationManager authorizationStatus]) {
-        case kCLAuthorizationStatusNotDetermined:
-        case kCLAuthorizationStatusAuthorizedWhenInUse:
-            [self.locationManager requestAlwaysAuthorization];
-            return;
-
-        case kCLAuthorizationStatusAuthorizedAlways:
-
-            return;
-
-        case kCLAuthorizationStatusDenied:
-        case kCLAuthorizationStatusRestricted:
-            //[self showSorryAlert];
-            return;
     }
 }
 
@@ -164,8 +72,6 @@
         self.selectedRouteDetailViewController = [segue sourceViewController];
         [self loadNewRoute:[self.selectedRouteDetailViewController routeData]];
     }
-    
-    NSLog(@"Source controller: %@", [[segue sourceViewController] debugDescription]);
 }
 
 - (IBAction)saveRoute:(id)sender {

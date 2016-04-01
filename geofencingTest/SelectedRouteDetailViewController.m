@@ -24,17 +24,13 @@
         self.routeNameLabel.text   = self.routeData.routeName;
     }
     
-    //for (RouteData *routeItem in fetchRouteRequestResults) {
-        if([self.routeData valueForKey:@"checkpoints"]){
-            NSLog(@"%@", [[self.routeData valueForKey:@"checkpoints"] debugDescription]);
-            for (RouteCoordinate *coordinate in [self.routeData valueForKey:@"checkpoints"]) {
-                NSLog(@"%@ Latitude: %f Longitude %f",[coordinate checkpointName], [coordinate.latitude floatValue], [coordinate.longitude floatValue]);
-                MKPointAnnotation *checkpoint = [[MKPointAnnotation alloc] init];
-                checkpoint.coordinate = CLLocationCoordinate2DMake([coordinate.latitude doubleValue], [coordinate.longitude doubleValue]);
-                [self.routePathDisplayMap addAnnotation:checkpoint];
-            }
+    if([self.routeData valueForKey:@"checkpoints"]){
+        for (RouteCoordinate *coordinate in [self.routeData valueForKey:@"checkpoints"]) {
+            MKPointAnnotation *checkpoint = [[MKPointAnnotation alloc] init];
+            checkpoint.coordinate = CLLocationCoordinate2DMake([coordinate.latitude doubleValue], [coordinate.longitude doubleValue]);
+            [self.routePathDisplayMap addAnnotation:checkpoint];
         }
-    //}
+    }
     
     MKCoordinateRegion region;
     MKCoordinateSpan   span;
@@ -45,8 +41,6 @@
     region.span = span;
     [self.routePathDisplayMap setRegion:region animated:YES];
     [self.routePathDisplayMap regionThatFits:region];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,9 +57,4 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (IBAction)loadRoute:(id)sender {
-
-}
-
 @end

@@ -67,7 +67,7 @@
 
 -(void)checkpointAudioNotification:(NSString*)textForSpeech{
     AVSpeechUtterance *textForSpokenWord = [[AVSpeechUtterance alloc] initWithString:textForSpeech];
-    textForSpokenWord.voice              = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-GB"];
+    textForSpokenWord.voice              = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
 
     self.textToSpeechPlayer              = [[AVSpeechSynthesizer alloc] init];
     [self.textToSpeechPlayer speakUtterance:textForSpokenWord];

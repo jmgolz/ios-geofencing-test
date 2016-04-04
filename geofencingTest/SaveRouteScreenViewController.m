@@ -98,7 +98,8 @@
 }
 
 - (IBAction)cancelRouteSave:(id)sender {
-
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"userCancelledSave" object:self.annotationsForStorage];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)makeRouteSavedDialog:(BOOL)didSaveRecord{

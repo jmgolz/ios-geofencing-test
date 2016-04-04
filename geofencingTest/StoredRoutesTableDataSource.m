@@ -28,19 +28,15 @@
     dataRequest.relationshipKeyPathsForPrefetching = [NSArray arrayWithObjects:@"RouteDataCheckpoints", nil];
     self.storedRoutes                              = [[RouteStorageManager alloc] init];
     self.fetchResults                              = [[self.storedRoutes routeStorageDataContext] executeFetchRequest:dataRequest error:&fetchDataError];
-    
-    //NSLog(@"Getting reults in table view... %@", self.fetchResults.debugDescription);
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //NSLog(@"Number of rows... %i", [[NSNumber numberWithInteger:self.fetchResults.count] intValue]);
     return self.fetchResults.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RouteData *routeItem            = [self.fetchResults objectAtIndex:indexPath.row];
-    //NSLog(@"Author: %@ and title: %@ at index: %i", routeItem.routeAuthor, routeItem.routeName, [[NSNumber numberWithInteger:indexPath.row] intValue]);
 
     self.tableCell                  = [tableView dequeueReusableCellWithIdentifier:@"routeInfoCell"];
     self.tableCell.routeAuthor.text = routeItem.routeAuthor;

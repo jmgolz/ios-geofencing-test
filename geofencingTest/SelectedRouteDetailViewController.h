@@ -19,7 +19,4 @@
 @property (weak, nonatomic) IBOutlet UILabel            * routeNameLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem    *loadButton;
 @property RouteData                                     * routeData;
-
-- (IBAction)loadRoute:(id)sender;
-
 @end

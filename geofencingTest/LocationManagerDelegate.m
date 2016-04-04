@@ -24,15 +24,7 @@
     //Can we get zip code?
     CLGeocoder *geocoder                 = [[CLGeocoder alloc]init];
     [geocoder reverseGeocodeLocation:crnLoc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-        //NSLog(@"ZIP CODE: %@", [[[placemarks objectAtIndex:0] addressDictionary] objectForKey:@"ZIP"]);
-
-        //NSLog(@"lat: %f long: %f", crnLoc.coordinate.latitude, crnLoc.coordinate.longitude);
-        //NSLog(@"Address: %@", [[[placemarks objectAtIndex:0] addressDictionary] objectForKey:@"FormattedAddressLines"]);
     }];
-
-
-
-
 }
 
 //Delegate methods for geofencing
@@ -48,18 +40,7 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region{
-    switch (state) {
-        case CLRegionStateInside:
-            //NSLog(@"Started inside of region: %@", region.identifier);
-            break;
-
-        case CLRegionStateOutside:
-            //NSLog(@"Started OUTSIDE of region: %@", region.identifier);
-            break;
-
-        default:
-            break;
-    }
+    
 }
 
 -(void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error{
@@ -86,7 +67,7 @@
 
 -(void)checkpointAudioNotification:(NSString*)textForSpeech{
     AVSpeechUtterance *textForSpokenWord = [[AVSpeechUtterance alloc] initWithString:textForSpeech];
-    textForSpokenWord.voice              = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-GB"];
+    textForSpokenWord.voice              = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
 
     self.textToSpeechPlayer              = [[AVSpeechSynthesizer alloc] init];
     [self.textToSpeechPlayer speakUtterance:textForSpokenWord];

@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
+#import "SharedLocationManager.h"
 #import "LocationManagerDelegate.h"
 #import "MapViewLocationUpdatesDelegate.h"
 #import "SaveRouteScreenViewController.h"
@@ -26,15 +27,15 @@
 
 @property (strong, nonatomic) IBOutlet                 UILongPressGestureRecognizer   *mapLongPressGestureRecognizer;
 
-@property (weak, nonatomic  ) IBOutlet                 MKMapView                      *mapView;
+@property (strong, nonatomic  ) IBOutlet                 MKMapView                      *mapView;
 @property (weak, nonatomic  ) IBOutlet                 UILabel                        *scansLabel;
 @property SelectedRouteDetailViewController *selectedRouteDetailViewController;
+@property (strong, nonatomic) SaveRouteScreenViewController *saveRouteScreenController;
 
-- (IBAction)clearAllCheckpoints:(id)sender;
-
-- (void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture;
-- (void)handleLocationServicesAuthorizationCheck;
-
+-(IBAction)clearAllCheckpoints:(id)sender;
+-(void)longPressGestureHandler:(UITapGestureRecognizer*)tapGesture;
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue;
+-(IBAction)saveRoute:(id)sender;
+-(void)loadNewRoute:(RouteData *)routeData;
 @end
 

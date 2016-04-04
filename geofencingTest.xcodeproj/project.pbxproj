@@ -16,6 +16,7 @@
 		E533B47F1C778E5D0068B359 /* RouteStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E533B47E1C778E5D0068B359 /* RouteStorageManager.m */; };
 		E533B4821C77AA4C0068B359 /* SaveRouteScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E533B4811C77AA4C0068B359 /* SaveRouteScreenViewController.m */; };
 		E537090B1C7E44360028DDC2 /* SelectedRouteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E537090A1C7E44360028DDC2 /* SelectedRouteDetailViewController.m */; };
+		E59D68231CAAD177007838BE /* SharedLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D68221CAAD177007838BE /* SharedLocationManager.m */; };
 		E5AD6F8E1C68F07D007C7F76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F8D1C68F07D007C7F76 /* main.m */; };
 		E5AD6F911C68F07D007C7F76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F901C68F07D007C7F76 /* AppDelegate.m */; };
 		E5AD6F941C68F07D007C7F76 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F931C68F07D007C7F76 /* ViewController.m */; };
@@ -67,6 +68,8 @@
 		E533B4811C77AA4C0068B359 /* SaveRouteScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveRouteScreenViewController.m; sourceTree = "<group>"; };
 		E53709091C7E44360028DDC2 /* SelectedRouteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedRouteDetailViewController.h; sourceTree = "<group>"; };
 		E537090A1C7E44360028DDC2 /* SelectedRouteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedRouteDetailViewController.m; sourceTree = "<group>"; };
+		E59D68211CAAD177007838BE /* SharedLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharedLocationManager.h; path = geofencingTest/SharedLocationManager.h; sourceTree = "<group>"; };
+		E59D68221CAAD177007838BE /* SharedLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharedLocationManager.m; path = geofencingTest/SharedLocationManager.m; sourceTree = "<group>"; };
 		E5AD6F891C68F07D007C7F76 /* geofencingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geofencingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AD6F8D1C68F07D007C7F76 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E5AD6F8F1C68F07D007C7F76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 		E5AD6F801C68F07D007C7F76 = {
 			isa = PBXGroup;
 			children = (
+				E59D68211CAAD177007838BE /* SharedLocationManager.h */,
+				E59D68221CAAD177007838BE /* SharedLocationManager.m */,
 				84DEFC2E1C6F785100607577 /* AVFoundation.framework */,
 				E5AD700B1C6A6EA9007C7F76 /* MapKit.framework */,
 				E5AD70091C694C97007C7F76 /* Test3.gpx */,
@@ -404,6 +409,7 @@
 				E533B47C1C777B200068B359 /* RouteData.m in Sources */,
 				84B9B08B1C79502100C73246 /* StoredRoutesTableDataSource.m in Sources */,
 				84B9B08E1C7956A800C73246 /* StoredRoutesScreenTableCell.m in Sources */,
+				E59D68231CAAD177007838BE /* SharedLocationManager.m in Sources */,
 				E5AD6F911C68F07D007C7F76 /* AppDelegate.m in Sources */,
 				E5AD700F1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.m in Sources */,
 				84B9B0851C78D7B000C73246 /* RouteCoordinate.m in Sources */,

@@ -42,6 +42,10 @@
 	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Can this app use this even in background?</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

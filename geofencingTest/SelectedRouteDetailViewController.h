@@ -12,6 +12,7 @@
 #import "RouteCoordinate.h"
 
 
+
 @interface SelectedRouteDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet MKMapView          * routePathDisplayMap;
 @property (weak, nonatomic) IBOutlet UILabel            * checkpointsAndDistanceLabel;

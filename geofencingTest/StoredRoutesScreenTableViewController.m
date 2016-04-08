@@ -30,7 +30,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];    
     self.routeData = [self.tableDataSource.fetchResults objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"segueToDetailVew" sender:nil];
+    NSLog(@"button tag clicked: %li", [[tableView cellForRowAtIndexPath:indexPath] tag]);
+    
+    //[self performSegueWithIdentifier:@"segueToDetailVew" sender:nil];
 }
 
 - (void)didReceiveMemoryWarning {

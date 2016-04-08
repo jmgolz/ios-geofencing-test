@@ -39,6 +39,7 @@
 		E5AD700C1C6A6EA9007C7F76 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AD700B1C6A6EA9007C7F76 /* MapKit.framework */; };
 		E5AD700F1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD700E1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.m */; };
 		E5F5FEC21CB82D3F005D7D2E /* up-arrow-5.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F5FEC11CB82D3F005D7D2E /* up-arrow-5.png */; };
+		E5F5FEC61CB8411F005D7D2E /* arrow-4.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F5FEC51CB8411F005D7D2E /* arrow-4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		E5AD700D1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewLocationUpdatesDelegate.h; sourceTree = "<group>"; };
 		E5AD700E1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewLocationUpdatesDelegate.m; sourceTree = "<group>"; };
 		E5F5FEC11CB82D3F005D7D2E /* up-arrow-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up-arrow-5.png"; sourceTree = "<group>"; };
+		E5F5FEC51CB8411F005D7D2E /* arrow-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-4.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 				E583E06F1CB7F9140077316B /* folder-3.png */,
 				E583E0711CB7F96A0077316B /* floppy-disc.png */,
 				E583E0771CB7FB020077316B /* waste-disposal.png */,
+				E5F5FEC51CB8411F005D7D2E /* arrow-4.png */,
 				E5F5FEC11CB82D3F005D7D2E /* up-arrow-5.png */,
 				E583E0791CB7FB4A0077316B /* document.png */,
 				E583E0751CB7FA8F0077316B /* target.png */,
@@ -417,6 +420,7 @@
 			files = (
 				E583E0741CB7FA5B0077316B /* settings.png in Resources */,
 				E583E0781CB7FB020077316B /* waste-disposal.png in Resources */,
+				E5F5FEC61CB8411F005D7D2E /* arrow-4.png in Resources */,
 				E5AD6F9F1C68F07D007C7F76 /* LaunchScreen.storyboard in Resources */,
 				E583E0701CB7F9140077316B /* folder-3.png in Resources */,
 				E583E06E1CB7F8EC0077316B /* arrow-3.png in Resources */,

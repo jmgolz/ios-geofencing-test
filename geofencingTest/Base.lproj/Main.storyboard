@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -26,42 +27,84 @@
                                     <outletCollection property="gestureRecognizers" destination="lts-1Q-cEa" appends="YES" id="4Qz-5T-6yn"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0JC-3w-uMB">
-                                <rect key="frame" x="20" y="508" width="143" height="30"/>
-                                <state key="normal" title="Clear all checkpoints"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0JC-3w-uMB">
+                                <rect key="frame" x="20" y="516" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="II8-kA-FhZ"/>
+                                    <constraint firstAttribute="height" constant="55" id="bEW-WM-7Mg"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="target.png"/>
                                 <connections>
                                     <action selector="clearAllCheckpoints:" destination="BYZ-38-t0r" eventType="touchUpInside" id="atr-6G-Kge"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIH-DC-E5W">
-                                <rect key="frame" x="482" y="508" width="98" height="30"/>
-                                <state key="normal" title="Stored Routes"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIH-DC-E5W">
+                                <rect key="frame" x="526" y="517" width="54" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="AFS-bF-FJU"/>
+                                    <constraint firstAttribute="width" constant="54" id="rk2-Nn-t8G"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="document.png"/>
                                 <connections>
                                     <segue destination="IQu-IM-0e8" kind="show" id="dMa-8G-KM5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTw-np-ahJ">
-                                <rect key="frame" x="482" y="546" width="98" height="30"/>
-                                <state key="normal" title="Save Route"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTw-np-ahJ">
+                                <rect key="frame" x="273" y="516" width="54" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="Fdk-Y2-4ec"/>
+                                    <constraint firstAttribute="height" constant="55" id="hRv-oM-FvI"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="floppy-disc.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="saveRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aAd-d5-vea"/>
                                     <segue destination="Agi-Dp-OdI" kind="presentation" identifier="segueToSaveRoute" id="cmm-El-HjI"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTt-ql-RPd">
+                                <rect key="frame" x="8" y="573" width="79" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="TC4-vr-8w9"/>
+                                    <constraint firstAttribute="width" constant="79" id="VX2-wD-Ihl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save Route" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zj-NV-Mp7">
+                                <rect key="frame" x="257" y="573" width="86" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Load Route" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6U-Zc-bfy">
+                                <rect key="frame" x="510" y="571" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fTw-np-ahJ" firstAttribute="trailing" secondItem="lLE-Wv-EeR" secondAttribute="trailing" id="Bk9-q0-TSD"/>
-                            <constraint firstItem="cIH-DC-E5W" firstAttribute="top" secondItem="lLE-Wv-EeR" secondAttribute="bottom" constant="8" id="Hdi-L6-EZN"/>
+                            <constraint firstItem="cTt-ql-RPd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-12" id="0tS-9L-FFL"/>
+                            <constraint firstItem="K6U-Zc-bfy" firstAttribute="top" secondItem="cIH-DC-E5W" secondAttribute="bottom" constant="5" id="3pb-H2-P7v"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fTw-np-ahJ" secondAttribute="bottom" constant="29" id="4Ie-lg-caV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K6U-Zc-bfy" secondAttribute="trailing" constant="-17" id="7t8-5P-tme"/>
+                            <constraint firstItem="5zj-NV-Mp7" firstAttribute="top" secondItem="fTw-np-ahJ" secondAttribute="bottom" constant="2" id="AfD-Vy-0rA"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="0JC-3w-uMB" secondAttribute="leading" id="ITW-sN-rOZ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="lLE-Wv-EeR" secondAttribute="leading" id="Mx8-F1-Dde"/>
-                            <constraint firstItem="fTw-np-ahJ" firstAttribute="leading" secondItem="cIH-DC-E5W" secondAttribute="leading" id="Vgj-gu-hOq"/>
+                            <constraint firstItem="fTw-np-ahJ" firstAttribute="top" secondItem="lLE-Wv-EeR" secondAttribute="bottom" constant="16" id="NqG-an-j3k"/>
+                            <constraint firstItem="fTw-np-ahJ" firstAttribute="centerX" secondItem="lLE-Wv-EeR" secondAttribute="centerX" id="UoC-d5-8uL"/>
+                            <constraint firstItem="cTt-ql-RPd" firstAttribute="top" secondItem="0JC-3w-uMB" secondAttribute="bottom" constant="2" id="Vo1-jo-BbJ"/>
+                            <constraint firstItem="cIH-DC-E5W" firstAttribute="top" secondItem="lLE-Wv-EeR" secondAttribute="bottom" constant="17" id="W9Y-2N-lu8"/>
                             <constraint firstItem="lLE-Wv-EeR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="dQM-N9-1l9"/>
-                            <constraint firstItem="fTw-np-ahJ" firstAttribute="top" secondItem="cIH-DC-E5W" secondAttribute="bottom" constant="8" id="eiM-MM-20t"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="0JC-3w-uMB" secondAttribute="leading" id="fsw-nO-iLd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lLE-Wv-EeR" secondAttribute="trailing" id="gDm-FQ-diN"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lLE-Wv-EeR" secondAttribute="bottom" constant="100" id="jXb-wp-U4c"/>
-                            <constraint firstItem="0JC-3w-uMB" firstAttribute="top" secondItem="lLE-Wv-EeR" secondAttribute="bottom" constant="8" id="tFd-eW-AEW"/>
-                            <constraint firstItem="cIH-DC-E5W" firstAttribute="trailing" secondItem="lLE-Wv-EeR" secondAttribute="trailing" id="zUd-BC-CJf"/>
+                            <constraint firstItem="5zj-NV-Mp7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ovs-r5-9bb"/>
+                            <constraint firstItem="cIH-DC-E5W" firstAttribute="trailingMargin" secondItem="lLE-Wv-EeR" secondAttribute="trailing" constant="-8" id="pzT-g2-ybY"/>
+                            <constraint firstItem="0JC-3w-uMB" firstAttribute="top" secondItem="lLE-Wv-EeR" secondAttribute="bottom" constant="16" id="ubU-Ha-LWP"/>
                         </constraints>
                     </view>
                     <connections>
@@ -391,4 +434,9 @@
             <point key="canvasLocation" x="890" y="-67"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="document.png" width="512" height="512"/>
+        <image name="floppy-disc.png" width="512" height="512"/>
+        <image name="target.png" width="512" height="512"/>
+    </resources>
 </document>

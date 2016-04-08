@@ -16,6 +16,14 @@
 		E533B47F1C778E5D0068B359 /* RouteStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E533B47E1C778E5D0068B359 /* RouteStorageManager.m */; };
 		E533B4821C77AA4C0068B359 /* SaveRouteScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E533B4811C77AA4C0068B359 /* SaveRouteScreenViewController.m */; };
 		E537090B1C7E44360028DDC2 /* SelectedRouteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E537090A1C7E44360028DDC2 /* SelectedRouteDetailViewController.m */; };
+		E583E06E1CB7F8EC0077316B /* arrow-3.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E06D1CB7F8EC0077316B /* arrow-3.png */; };
+		E583E0701CB7F9140077316B /* folder-3.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E06F1CB7F9140077316B /* folder-3.png */; };
+		E583E0721CB7F96A0077316B /* floppy-disc.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E0711CB7F96A0077316B /* floppy-disc.png */; };
+		E583E0741CB7FA5B0077316B /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E0731CB7FA5B0077316B /* settings.png */; };
+		E583E0761CB7FA8F0077316B /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E0751CB7FA8F0077316B /* target.png */; };
+		E583E0781CB7FB020077316B /* waste-disposal.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E0771CB7FB020077316B /* waste-disposal.png */; };
+		E583E07A1CB7FB4A0077316B /* document.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E0791CB7FB4A0077316B /* document.png */; };
+		E583E07C1CB7FB780077316B /* play-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E07B1CB7FB780077316B /* play-button.png */; };
 		E59D68231CAAD177007838BE /* SharedLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D68221CAAD177007838BE /* SharedLocationManager.m */; };
 		E5AD6F8E1C68F07D007C7F76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F8D1C68F07D007C7F76 /* main.m */; };
 		E5AD6F911C68F07D007C7F76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F901C68F07D007C7F76 /* AppDelegate.m */; };
@@ -68,6 +76,14 @@
 		E533B4811C77AA4C0068B359 /* SaveRouteScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveRouteScreenViewController.m; sourceTree = "<group>"; };
 		E53709091C7E44360028DDC2 /* SelectedRouteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedRouteDetailViewController.h; sourceTree = "<group>"; };
 		E537090A1C7E44360028DDC2 /* SelectedRouteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedRouteDetailViewController.m; sourceTree = "<group>"; };
+		E583E06D1CB7F8EC0077316B /* arrow-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-3.png"; sourceTree = "<group>"; };
+		E583E06F1CB7F9140077316B /* folder-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folder-3.png"; sourceTree = "<group>"; };
+		E583E0711CB7F96A0077316B /* floppy-disc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "floppy-disc.png"; sourceTree = "<group>"; };
+		E583E0731CB7FA5B0077316B /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		E583E0751CB7FA8F0077316B /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
+		E583E0771CB7FB020077316B /* waste-disposal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "waste-disposal.png"; sourceTree = "<group>"; };
+		E583E0791CB7FB4A0077316B /* document.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = document.png; sourceTree = "<group>"; };
+		E583E07B1CB7FB780077316B /* play-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button.png"; sourceTree = "<group>"; };
 		E59D68211CAAD177007838BE /* SharedLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharedLocationManager.h; path = geofencingTest/SharedLocationManager.h; sourceTree = "<group>"; };
 		E59D68221CAAD177007838BE /* SharedLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharedLocationManager.m; path = geofencingTest/SharedLocationManager.m; sourceTree = "<group>"; };
 		E5AD6F891C68F07D007C7F76 /* geofencingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geofencingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +207,29 @@
 			name = "Data Storage";
 			sourceTree = "<group>";
 		};
+		E583E05F1CB7F2D70077316B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E583E0601CB7F2E20077316B /* Icons */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		E583E0601CB7F2E20077316B /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				E583E06F1CB7F9140077316B /* folder-3.png */,
+				E583E0711CB7F96A0077316B /* floppy-disc.png */,
+				E583E07B1CB7FB780077316B /* play-button.png */,
+				E583E0771CB7FB020077316B /* waste-disposal.png */,
+				E583E0791CB7FB4A0077316B /* document.png */,
+				E583E0751CB7FA8F0077316B /* target.png */,
+				E583E0731CB7FA5B0077316B /* settings.png */,
+				E583E06D1CB7F8EC0077316B /* arrow-3.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		E5AD6F801C68F07D007C7F76 = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +259,7 @@
 		E5AD6F8B1C68F07D007C7F76 /* geofencingTest */ = {
 			isa = PBXGroup;
 			children = (
+				E583E05F1CB7F2D70077316B /* Assets */,
 				E503FA871CA43CFE00CD4A2B /* Screens */,
 				E503FA841CA43C8200CD4A2B /* Delegates */,
 				E533B4791C777ADF0068B359 /* Data Storage */,
@@ -375,8 +415,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E583E0741CB7FA5B0077316B /* settings.png in Resources */,
+				E583E0781CB7FB020077316B /* waste-disposal.png in Resources */,
 				E5AD6F9F1C68F07D007C7F76 /* LaunchScreen.storyboard in Resources */,
+				E583E0701CB7F9140077316B /* folder-3.png in Resources */,
+				E583E06E1CB7F8EC0077316B /* arrow-3.png in Resources */,
 				E5AD700A1C694C97007C7F76 /* Test3.gpx in Resources */,
+				E583E0761CB7FA8F0077316B /* target.png in Resources */,
+				E583E0721CB7F96A0077316B /* floppy-disc.png in Resources */,
+				E583E07A1CB7FB4A0077316B /* document.png in Resources */,
+				E583E07C1CB7FB780077316B /* play-button.png in Resources */,
 				E5AD6F9C1C68F07D007C7F76 /* Assets.xcassets in Resources */,
 				E5AD6F971C68F07D007C7F76 /* Main.storyboard in Resources */,
 			);

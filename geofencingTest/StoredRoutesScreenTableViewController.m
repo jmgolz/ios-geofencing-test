@@ -46,8 +46,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"segueToDetailVew"]){
         [(SelectedRouteDetailViewController*)[segue destinationViewController] setRouteData:self.routeData];
+    } else if([[segue identifier] isEqualToString:@"segueToMainMapVew"]){
+        
     }
 }
+
+-(IBAction)prepareForUnwindToStoredRoutesList:(UIStoryboardSegue *)segue {
+    if ([[[segue sourceViewController] restorationIdentifier] isEqualToString:@"routeDetail"]) {
+        self.routeData = [(SelectedRouteDetailViewController*)[segue destinationViewController] routeData];
+    }
+}
+
+
 - (IBAction)returnToMap:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

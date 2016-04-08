@@ -13,12 +13,13 @@
 #import "RouteCoordinate.h"
 
 
-@interface StoredRoutesScreenTableViewController : UITableViewController<UITableViewDelegate>
+@interface StoredRoutesScreenTableViewController : UIViewController<UITableViewDelegate>
 @property StoredRoutesTableDataSource * tableDataSource;
 @property NSArray                     * routeDetailsForMapScreen;
 @property RouteData                   * routeData;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)returnToMap:(id)sender;
-
+- (IBAction)prepareForUnwindToStoredRoutesList:(UIStoryboardSegue *)segue;
 @end

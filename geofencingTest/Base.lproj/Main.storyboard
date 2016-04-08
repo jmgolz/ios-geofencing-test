@@ -37,7 +37,7 @@
                                 <rect key="frame" x="482" y="508" width="98" height="30"/>
                                 <state key="normal" title="Stored Routes"/>
                                 <connections>
-                                    <segue destination="4gJ-xR-jP4" kind="show" identifier="segueToStoredRoutes" id="kZr-bG-6WU"/>
+                                    <segue destination="IQu-IM-0e8" kind="show" id="dMa-8G-KM5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTw-np-ahJ">
@@ -70,6 +70,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="oSg-ko-p86" userLabel="Exit" sceneMemberID="exit"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="lts-1Q-cEa">
                     <connections>
                         <action selector="longPressGestureHandler:" destination="BYZ-38-t0r" id="hqN-PV-pbd"/>
@@ -78,113 +79,130 @@
             </objects>
             <point key="canvasLocation" x="-29" y="252"/>
         </scene>
-        <!--Stored Routes-->
-        <scene sceneID="Q2g-AV-iL2">
+        <!--Stored Routes Screen Table View Controller-->
+        <scene sceneID="E8l-Fn-2EN">
             <objects>
-                <tableViewController restorationIdentifier="routesList" storyboardIdentifier="routesList" title="Stored Routes" id="7WX-SU-QO2" customClass="StoredRoutesScreenTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" id="PMG-rw-bf1">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                <viewController restorationIdentifier="routesList" storyboardIdentifier="routesList" id="IQu-IM-0e8" customClass="StoredRoutesScreenTableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7vl-is-U3Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="BVo-xm-L3J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TC3-QB-LRT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="routeInfoCell" rowHeight="125" id="Ot8-DK-qWp" customClass="StoredRoutesScreenTableCell">
-                                <rect key="frame" x="0.0" y="28" width="600" height="125"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ot8-DK-qWp" id="ORy-Ip-YO2">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="124.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Saved:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riS-Wo-Odp">
-                                            <rect key="frame" x="8" y="31" width="92" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/31/2000 22:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d9-ns-qrE">
-                                            <rect key="frame" x="103" y="31" width="137" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VP9-it-YeN">
-                                            <rect key="frame" x="8" y="59" width="56.5" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QB7-Ab-RoI">
-                                            <rect key="frame" x="68" y="59" width="122" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlx-xw-JnF">
-                                            <rect key="frame" x="8" y="87.5" width="99" height="21"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGO-rm-znb">
+                                <rect key="frame" x="0.0" y="555" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Back" id="8l7-Sf-VXd">
+                                        <connections>
+                                            <segue destination="oSg-ko-p86" kind="unwind" unwindAction="prepareForUnwind:" id="SWj-fQ-Eor"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PMG-rw-bf1">
+                                <rect key="frame" x="0.0" y="28" width="600" height="527"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="routeInfoCell" rowHeight="125" id="Ot8-DK-qWp" customClass="StoredRoutesScreenTableCell">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="125"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ot8-DK-qWp" id="ORy-Ip-YO2">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="124.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Saved:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riS-Wo-Odp">
+                                                    <rect key="frame" x="8" y="31" width="92" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/31/2000 22:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d9-ns-qrE">
+                                                    <rect key="frame" x="103" y="31" width="137" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VP9-it-YeN">
+                                                    <rect key="frame" x="8" y="59" width="56.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QB7-Ab-RoI">
+                                                    <rect key="frame" x="68" y="59" width="122" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlx-xw-JnF">
+                                                    <rect key="frame" x="8" y="87.5" width="99" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Dlx-xw-JnF" secondAttribute="height" multiplier="33:7" id="TgU-dT-DXQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hoy-zm-2Pc">
+                                                    <rect key="frame" x="115" y="88.5" width="444" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="Dlx-xw-JnF" secondAttribute="height" multiplier="33:7" id="TgU-dT-DXQ"/>
+                                                <constraint firstItem="6d9-ns-qrE" firstAttribute="leading" secondItem="riS-Wo-Odp" secondAttribute="trailing" constant="3" id="6WW-d0-Q31"/>
+                                                <constraint firstItem="VP9-it-YeN" firstAttribute="top" secondItem="riS-Wo-Odp" secondAttribute="bottom" constant="8" id="96v-oP-NDM"/>
+                                                <constraint firstItem="Dlx-xw-JnF" firstAttribute="top" secondItem="VP9-it-YeN" secondAttribute="bottom" constant="8" id="C3B-gD-pob"/>
+                                                <constraint firstItem="QB7-Ab-RoI" firstAttribute="width" secondItem="ORy-Ip-YO2" secondAttribute="height" multiplier="61:45" constant="-46.76666666666668" id="DXX-bJ-3Jo"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="riS-Wo-Odp" secondAttribute="leading" id="F1t-ZH-XxE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Hoy-zm-2Pc" secondAttribute="trailing" id="K6l-5H-Jj3"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="VP9-it-YeN" secondAttribute="leading" id="dEp-B5-vkg"/>
+                                                <constraint firstItem="QB7-Ab-RoI" firstAttribute="leading" secondItem="VP9-it-YeN" secondAttribute="trailing" constant="4" id="dcC-2N-NqS"/>
+                                                <constraint firstItem="Hoy-zm-2Pc" firstAttribute="leading" secondItem="Dlx-xw-JnF" secondAttribute="trailing" constant="8" id="emx-Sk-6cD"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="Dlx-xw-JnF" secondAttribute="leading" id="fpJ-hl-A23"/>
+                                                <constraint firstAttribute="topMargin" secondItem="6d9-ns-qrE" secondAttribute="top" constant="-23" id="frH-0X-BSe"/>
+                                                <constraint firstItem="Hoy-zm-2Pc" firstAttribute="top" secondItem="ORy-Ip-YO2" secondAttribute="topMargin" constant="80.5" id="o3h-P9-gyq"/>
+                                                <constraint firstAttribute="topMargin" secondItem="riS-Wo-Odp" secondAttribute="top" constant="-23" id="xjp-pU-x5X"/>
+                                                <constraint firstItem="QB7-Ab-RoI" firstAttribute="top" secondItem="6d9-ns-qrE" secondAttribute="bottom" constant="8" id="yu4-ay-DAu"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hoy-zm-2Pc">
-                                            <rect key="frame" x="115" y="88.5" width="444" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="6d9-ns-qrE" firstAttribute="leading" secondItem="riS-Wo-Odp" secondAttribute="trailing" constant="3" id="6WW-d0-Q31"/>
-                                        <constraint firstItem="VP9-it-YeN" firstAttribute="top" secondItem="riS-Wo-Odp" secondAttribute="bottom" constant="8" id="96v-oP-NDM"/>
-                                        <constraint firstItem="Dlx-xw-JnF" firstAttribute="top" secondItem="VP9-it-YeN" secondAttribute="bottom" constant="8" id="C3B-gD-pob"/>
-                                        <constraint firstItem="QB7-Ab-RoI" firstAttribute="width" secondItem="ORy-Ip-YO2" secondAttribute="height" multiplier="61:45" constant="-46.76666666666668" id="DXX-bJ-3Jo"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="riS-Wo-Odp" secondAttribute="leading" id="F1t-ZH-XxE"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Hoy-zm-2Pc" secondAttribute="trailing" id="K6l-5H-Jj3"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="VP9-it-YeN" secondAttribute="leading" id="dEp-B5-vkg"/>
-                                        <constraint firstItem="QB7-Ab-RoI" firstAttribute="leading" secondItem="VP9-it-YeN" secondAttribute="trailing" constant="4" id="dcC-2N-NqS"/>
-                                        <constraint firstItem="Hoy-zm-2Pc" firstAttribute="leading" secondItem="Dlx-xw-JnF" secondAttribute="trailing" constant="8" id="emx-Sk-6cD"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="Dlx-xw-JnF" secondAttribute="leading" id="fpJ-hl-A23"/>
-                                        <constraint firstAttribute="topMargin" secondItem="6d9-ns-qrE" secondAttribute="top" constant="-23" id="frH-0X-BSe"/>
-                                        <constraint firstItem="Hoy-zm-2Pc" firstAttribute="top" secondItem="ORy-Ip-YO2" secondAttribute="topMargin" constant="80.5" id="o3h-P9-gyq"/>
-                                        <constraint firstAttribute="topMargin" secondItem="riS-Wo-Odp" secondAttribute="top" constant="-23" id="xjp-pU-x5X"/>
-                                        <constraint firstItem="QB7-Ab-RoI" firstAttribute="top" secondItem="6d9-ns-qrE" secondAttribute="bottom" constant="8" id="yu4-ay-DAu"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="dateSaved" destination="6d9-ns-qrE" id="dKs-lr-OWD"/>
-                                    <outlet property="routeAuthor" destination="QB7-Ab-RoI" id="hIP-KD-eOk"/>
-                                    <outlet property="routeName" destination="Hoy-zm-2Pc" id="DA7-FD-9Zn"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="7WX-SU-QO2" id="b5d-6P-oQg"/>
-                            <outlet property="delegate" destination="7WX-SU-QO2" id="8w8-rH-fPq"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="ia8-Cl-YnI">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="DDD-dL-WgW">
-                            <connections>
-                                <segue destination="MYk-LN-vPc" kind="unwind" unwindAction="prepareForUnwind:" id="t5L-6e-bcx"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateSaved" destination="6d9-ns-qrE" id="dKs-lr-OWD"/>
+                                            <outlet property="routeAuthor" destination="QB7-Ab-RoI" id="hIP-KD-eOk"/>
+                                            <outlet property="routeName" destination="Hoy-zm-2Pc" id="DA7-FD-9Zn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BVo-xm-L3J" firstAttribute="top" secondItem="sGO-rm-znb" secondAttribute="bottom" constant="1" id="9aD-Sq-0Px"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PMG-rw-bf1" secondAttribute="trailing" constant="-20" id="Tvl-QV-CQC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sGO-rm-znb" secondAttribute="trailing" constant="-20" id="YDv-MC-1Qy"/>
+                            <constraint firstItem="PMG-rw-bf1" firstAttribute="leading" secondItem="TC3-QB-LRT" secondAttribute="leadingMargin" constant="-20" id="eEE-ww-bCu"/>
+                            <constraint firstItem="sGO-rm-znb" firstAttribute="leading" secondItem="TC3-QB-LRT" secondAttribute="leadingMargin" constant="-20" id="g8M-c2-PJb"/>
+                            <constraint firstItem="PMG-rw-bf1" firstAttribute="top" secondItem="7vl-is-U3Q" secondAttribute="bottom" constant="8" id="l9b-BV-hVt"/>
+                            <constraint firstItem="sGO-rm-znb" firstAttribute="top" secondItem="PMG-rw-bf1" secondAttribute="bottom" id="qxh-JA-Cud"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <outlet property="tableView" destination="PMG-rw-bf1" id="Mbh-wa-hS9"/>
-                        <segue destination="eWm-EJ-s6q" kind="show" identifier="segueToDetailVew" id="7V6-g1-dE4"/>
+                        <outlet property="tableView" destination="PMG-rw-bf1" id="RCz-dA-1Jo"/>
+                        <segue destination="eWm-EJ-s6q" kind="show" identifier="segueToDetailVew" id="hX2-Jz-csi"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L9v-A3-s4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="MYk-LN-vPc" userLabel="Exit" sceneMemberID="exit"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EwD-XU-leh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ba2-Ro-dVZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1669" y="614"/>
+            <point key="canvasLocation" x="890" y="598"/>
         </scene>
         <!--Selected Route Detail View Controller-->
         <scene sceneID="4Rv-4f-NLN">
             <objects>
-                <viewController id="eWm-EJ-s6q" customClass="SelectedRouteDetailViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="routeDetail" storyboardIdentifier="routeDetail" id="eWm-EJ-s6q" customClass="SelectedRouteDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pj1-b2-mhs"/>
                         <viewControllerLayoutGuide type="bottom" id="NBZ-od-igR"/>
@@ -240,11 +258,15 @@
                                 <items>
                                     <barButtonItem title="Load" style="plain" id="Yxd-9e-c7I">
                                         <connections>
-                                            <action selector="loadRoute:" destination="eWm-EJ-s6q" id="qRK-GL-uQ4"/>
-                                            <segue destination="iKJ-Ab-0pA" kind="unwind" unwindAction="prepareForUnwind:" id="LDW-2g-dNi"/>
+                                            <segue destination="oSg-ko-p86" kind="unwind" unwindAction="prepareForUnwind:" id="qVU-5o-sSS"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="AKc-5d-XhL"/>
+                                    <barButtonItem title="Back" style="plain" id="DOo-TF-Umf">
+                                        <connections>
+                                            <segue destination="Ba2-Ro-dVZ" kind="unwind" unwindAction="prepareForUnwindToStoredRoutesList:" id="c78-I5-edc"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -277,16 +299,14 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="checkpointsAndDistanceLabel" destination="ECO-qi-AGI" id="B33-my-cuD"/>
-                        <outlet property="loadButton" destination="Yxd-9e-c7I" id="ZOO-Zn-W6I"/>
                         <outlet property="routeAuthorLabel" destination="4IZ-5b-jct" id="I7T-bW-1ZP"/>
                         <outlet property="routeNameLabel" destination="GHW-I3-WSl" id="Y8T-kG-ZnU"/>
                         <outlet property="routePathDisplayMap" destination="Ymb-T4-NfP" id="dzT-Yh-qdb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feG-Jt-EW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="iKJ-Ab-0pA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-40" y="982"/>
+            <point key="canvasLocation" x="1554" y="598"/>
         </scene>
         <!--Save Route Screen-->
         <scene sceneID="bfg-XM-42F">
@@ -369,24 +389,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiN-t2-fpw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="890" y="-67"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="37n-HZ-Ryo">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4gJ-xR-jP4" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="eST-Ml-iGS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="7WX-SU-QO2" kind="relationship" relationship="rootViewController" id="pKg-Tg-csR"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K3Q-cc-yZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="857" y="614"/>
         </scene>
     </scenes>
 </document>

@@ -23,7 +23,6 @@
 		E583E0761CB7FA8F0077316B /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E0751CB7FA8F0077316B /* target.png */; };
 		E583E0781CB7FB020077316B /* waste-disposal.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E0771CB7FB020077316B /* waste-disposal.png */; };
 		E583E07A1CB7FB4A0077316B /* document.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E0791CB7FB4A0077316B /* document.png */; };
-		E583E07C1CB7FB780077316B /* play-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E07B1CB7FB780077316B /* play-button.png */; };
 		E59D68231CAAD177007838BE /* SharedLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D68221CAAD177007838BE /* SharedLocationManager.m */; };
 		E5AD6F8E1C68F07D007C7F76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F8D1C68F07D007C7F76 /* main.m */; };
 		E5AD6F911C68F07D007C7F76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F901C68F07D007C7F76 /* AppDelegate.m */; };
@@ -39,6 +38,7 @@
 		E5AD700A1C694C97007C7F76 /* Test3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E5AD70091C694C97007C7F76 /* Test3.gpx */; };
 		E5AD700C1C6A6EA9007C7F76 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AD700B1C6A6EA9007C7F76 /* MapKit.framework */; };
 		E5AD700F1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD700E1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.m */; };
+		E5F5FEC21CB82D3F005D7D2E /* up-arrow-5.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F5FEC11CB82D3F005D7D2E /* up-arrow-5.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +83,6 @@
 		E583E0751CB7FA8F0077316B /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
 		E583E0771CB7FB020077316B /* waste-disposal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "waste-disposal.png"; sourceTree = "<group>"; };
 		E583E0791CB7FB4A0077316B /* document.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = document.png; sourceTree = "<group>"; };
-		E583E07B1CB7FB780077316B /* play-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button.png"; sourceTree = "<group>"; };
 		E59D68211CAAD177007838BE /* SharedLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharedLocationManager.h; path = geofencingTest/SharedLocationManager.h; sourceTree = "<group>"; };
 		E59D68221CAAD177007838BE /* SharedLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharedLocationManager.m; path = geofencingTest/SharedLocationManager.m; sourceTree = "<group>"; };
 		E5AD6F891C68F07D007C7F76 /* geofencingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geofencingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +109,7 @@
 		E5AD700B1C6A6EA9007C7F76 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E5AD700D1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewLocationUpdatesDelegate.h; sourceTree = "<group>"; };
 		E5AD700E1C6A7B24007C7F76 /* MapViewLocationUpdatesDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewLocationUpdatesDelegate.m; sourceTree = "<group>"; };
+		E5F5FEC11CB82D3F005D7D2E /* up-arrow-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up-arrow-5.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,8 +220,8 @@
 			children = (
 				E583E06F1CB7F9140077316B /* folder-3.png */,
 				E583E0711CB7F96A0077316B /* floppy-disc.png */,
-				E583E07B1CB7FB780077316B /* play-button.png */,
 				E583E0771CB7FB020077316B /* waste-disposal.png */,
+				E5F5FEC11CB82D3F005D7D2E /* up-arrow-5.png */,
 				E583E0791CB7FB4A0077316B /* document.png */,
 				E583E0751CB7FA8F0077316B /* target.png */,
 				E583E0731CB7FA5B0077316B /* settings.png */,
@@ -423,8 +423,8 @@
 				E5AD700A1C694C97007C7F76 /* Test3.gpx in Resources */,
 				E583E0761CB7FA8F0077316B /* target.png in Resources */,
 				E583E0721CB7F96A0077316B /* floppy-disc.png in Resources */,
+				E5F5FEC21CB82D3F005D7D2E /* up-arrow-5.png in Resources */,
 				E583E07A1CB7FB4A0077316B /* document.png in Resources */,
-				E583E07C1CB7FB780077316B /* play-button.png in Resources */,
 				E5AD6F9C1C68F07D007C7F76 /* Assets.xcassets in Resources */,
 				E5AD6F971C68F07D007C7F76 /* Main.storyboard in Resources */,
 			);

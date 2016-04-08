@@ -18,6 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel            * checkpointsAndDistanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel            * routeAuthorLabel;
 @property (weak, nonatomic) IBOutlet UILabel            * routeNameLabel;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem    *loadButton;
+@property (weak, nonatomic) IBOutlet UIButton    *loadButton;
 @property RouteData                                     * routeData;
 @end

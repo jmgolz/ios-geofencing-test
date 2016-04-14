@@ -22,10 +22,9 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)loadMap:(id)sender {
-    NSLog(@"Clicked button with tag: %li", [(UIButton*)sender tag]);
-    
-   
-    
+- (IBAction)loadMap:(UIButton*)button {
+    NSLog(@"Row selected: %li", self.rowOfCustomCell.row);
+    UITableView *table = [self tableView];
+    [[table delegate] tableView:table didSelectRowAtIndexPath:self.rowOfCustomCell];
 }
 @end

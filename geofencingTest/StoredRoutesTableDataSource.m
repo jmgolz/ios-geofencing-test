@@ -41,6 +41,7 @@
     self.tableCell                  = [tableView dequeueReusableCellWithIdentifier:@"routeInfoCell"];
     self.tableCell.routeAuthor.text = routeItem.routeAuthor;
     self.tableCell.routeName.text   = routeItem.routeName;
+    self.tableCell.rowOfCustomCell  = indexPath;
     
     return self.tableCell;
 }

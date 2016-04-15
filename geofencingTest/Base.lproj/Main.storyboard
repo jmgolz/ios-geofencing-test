@@ -509,7 +509,7 @@
         <!--Edit Route Screen-->
         <scene sceneID="3Db-p5-ZeN">
             <objects>
-                <viewController restorationIdentifier="editRoute" storyboardIdentifier="editRoute" title="Edit Route Screen" id="FgR-qM-ytT" sceneMemberID="viewController">
+                <viewController restorationIdentifier="editRoute" storyboardIdentifier="editRoute" title="Edit Route Screen" id="FgR-qM-ytT" customClass="EditRouteViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kbn-Qo-hPi"/>
                         <viewControllerLayoutGuide type="bottom" id="bbl-9r-rkV"/>
@@ -592,8 +592,13 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="authorTextField" destination="30Q-NI-RF2" id="jCy-mA-p2U"/>
+                        <outlet property="backButton" destination="2PS-fY-uDJ" id="jB4-K3-TOe"/>
                         <outlet property="loadButton" destination="oB7-Cg-Y6z" id="D3a-H8-VGz"/>
+                        <outlet property="mapView" destination="8fI-dK-6FS" id="pxH-qv-SR6"/>
+                        <outlet property="routeNameTextField" destination="Ghu-ul-HXM" id="osk-r5-Bfk"/>
                         <outlet property="routePathDisplayMap" destination="8fI-dK-6FS" id="Asz-QA-Npx"/>
+                        <outlet property="saveButton" destination="oB7-Cg-Y6z" id="Qkg-Ze-GKi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVH-b3-5wa" userLabel="First Responder" sceneMemberID="firstResponder"/>

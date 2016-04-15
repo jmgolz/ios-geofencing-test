@@ -23,6 +23,7 @@
 		E583E0761CB7FA8F0077316B /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E0751CB7FA8F0077316B /* target.png */; };
 		E583E0781CB7FB020077316B /* waste-disposal.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E0771CB7FB020077316B /* waste-disposal.png */; };
 		E583E07A1CB7FB4A0077316B /* document.png in Resources */ = {isa = PBXBuildFile; fileRef = E583E0791CB7FB4A0077316B /* document.png */; };
+		E5974A661CC194D300DA305A /* EditRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5974A651CC194D300DA305A /* EditRouteViewController.m */; };
 		E59D68231CAAD177007838BE /* SharedLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D68221CAAD177007838BE /* SharedLocationManager.m */; };
 		E5AD6F8E1C68F07D007C7F76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F8D1C68F07D007C7F76 /* main.m */; };
 		E5AD6F911C68F07D007C7F76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD6F901C68F07D007C7F76 /* AppDelegate.m */; };
@@ -84,6 +85,8 @@
 		E583E0751CB7FA8F0077316B /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
 		E583E0771CB7FB020077316B /* waste-disposal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "waste-disposal.png"; sourceTree = "<group>"; };
 		E583E0791CB7FB4A0077316B /* document.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = document.png; sourceTree = "<group>"; };
+		E5974A641CC194D300DA305A /* EditRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRouteViewController.h; sourceTree = "<group>"; };
+		E5974A651CC194D300DA305A /* EditRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRouteViewController.m; sourceTree = "<group>"; };
 		E59D68211CAAD177007838BE /* SharedLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharedLocationManager.h; path = geofencingTest/SharedLocationManager.h; sourceTree = "<group>"; };
 		E59D68221CAAD177007838BE /* SharedLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharedLocationManager.m; path = geofencingTest/SharedLocationManager.m; sourceTree = "<group>"; };
 		E5AD6F891C68F07D007C7F76 /* geofencingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geofencingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +183,7 @@
 				E503FA881CA43D0D00CD4A2B /* m */,
 				E5AD6F921C68F07D007C7F76 /* ViewController.h */,
 				E533B4801C77AA4C0068B359 /* SaveRouteScreenViewController.h */,
+				E5974A641CC194D300DA305A /* EditRouteViewController.h */,
 				84B9B0861C794FB600C73246 /* StoredRoutesScreenTableViewController.h */,
 				E53709091C7E44360028DDC2 /* SelectedRouteDetailViewController.h */,
 			);
@@ -193,6 +197,7 @@
 				E533B4811C77AA4C0068B359 /* SaveRouteScreenViewController.m */,
 				84B9B0871C794FB600C73246 /* StoredRoutesScreenTableViewController.m */,
 				E537090A1C7E44360028DDC2 /* SelectedRouteDetailViewController.m */,
+				E5974A651CC194D300DA305A /* EditRouteViewController.m */,
 			);
 			name = m;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 				84B9B0881C794FB600C73246 /* StoredRoutesScreenTableViewController.m in Sources */,
 				E533B47C1C777B200068B359 /* RouteData.m in Sources */,
 				84B9B08B1C79502100C73246 /* StoredRoutesTableDataSource.m in Sources */,
+				E5974A661CC194D300DA305A /* EditRouteViewController.m in Sources */,
 				84B9B08E1C7956A800C73246 /* StoredRoutesScreenTableCell.m in Sources */,
 				E59D68231CAAD177007838BE /* SharedLocationManager.m in Sources */,
 				E5AD6F911C68F07D007C7F76 /* AppDelegate.m in Sources */,

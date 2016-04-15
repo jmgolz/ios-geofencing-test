@@ -21,4 +21,5 @@
 
 @property RouteStorageManager *routeStorageManager;
 
+- (IBAction)editRouteInformation:(UIButton *)sender;
 @end

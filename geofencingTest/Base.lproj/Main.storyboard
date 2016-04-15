@@ -550,6 +550,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="up-arrow-5.png"/>
                                 <connections>
+                                    <action selector="editRouteInformation:" destination="FgR-qM-ytT" eventType="touchUpInside" id="81R-3Y-5Ps"/>
                                     <segue destination="HSe-ow-KWk" kind="unwind" unwindAction="prepareForUnwind:" id="B3R-05-uJB"/>
                                 </connections>
                             </button>
